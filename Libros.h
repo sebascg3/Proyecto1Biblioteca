@@ -1,4 +1,4 @@
-#pragma once
+
 #include "Material.h"
 
 class Libros :public Material {
