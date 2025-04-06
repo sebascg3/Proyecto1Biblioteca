@@ -132,6 +132,7 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialDigital.h" />
     <ClInclude Include="Revistas.h" />
+    <ClInclude Include="Usuario.h" />
     <ClInclude Include="Videos.h" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,7 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MaterialDigital.cpp" />
     <ClCompile Include="Revistas.cpp" />
+    <ClCompile Include="Usuario.cpp" />
     <ClCompile Include="Videos.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
