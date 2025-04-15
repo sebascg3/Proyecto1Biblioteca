@@ -1,7 +1,6 @@
 #include "Usuario.h"
 #include "Material.h"
-class Solicitud
-{
+class Solicitud {
 private:
 	Usuario* usuario;
 	Material* material;
@@ -11,6 +10,7 @@ private:
 
 public:
 	Solicitud(Usuario*,Material*,string,string,bool);
+	Solicitud(Solicitud*);
 	Solicitud();
 	~Solicitud();
 	Usuario* getUsuario();

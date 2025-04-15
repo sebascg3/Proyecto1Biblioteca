@@ -127,20 +127,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Downloads\ListaMateriales.h" />
+    <ClInclude Include="..\..\..\Downloads\NodoMaterial.h" />
     <ClInclude Include="Articulos.h" />
     <ClInclude Include="Libros.h" />
+    <ClInclude Include="ListaSolicitud.h" />
+    <ClInclude Include="ListaUsuario.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialDigital.h" />
+    <ClInclude Include="NodoSolicitud.h" />
+    <ClInclude Include="NodoUsuario.h" />
     <ClInclude Include="Revistas.h" />
     <ClInclude Include="Solicitud.h" />
     <ClInclude Include="Usuario.h" />
     <ClInclude Include="Videos.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Downloads\ListaMateriales.cpp" />
     <ClCompile Include="Articulos.cpp" />
     <ClCompile Include="Libros.cpp" />
+    <ClCompile Include="ListaSolicitud.cpp" />
+    <ClCompile Include="ListaUsuario.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MaterialDigital.cpp" />
+    <ClCompile Include="NodoSolicitud.cpp" />
+    <ClCompile Include="NodoUsuario.cpp" />
     <ClCompile Include="Revistas.cpp" />
     <ClCompile Include="Solicitud.cpp" />
     <ClCompile Include="Usuario.cpp" />

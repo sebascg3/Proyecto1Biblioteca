@@ -7,6 +7,12 @@ Usuario::Usuario(string nom, string ced, bool est)
 	estado = est;
 }
 
+Usuario::Usuario(Usuario* u) {
+	nombre = u->nombre;
+	cedula = u->cedula;
+	estado = u->estado;
+}
+
 string Usuario::getNombre()
 {
 	return nombre;
@@ -25,7 +31,7 @@ bool Usuario::getEstado()
 string Usuario::mostrarUsuario()
 {
 	stringstream s;
-	s << cedula << ";" << nombre << endl;
+	s << cedula << ":" << nombre << endl;
 	s << estado << endl;
 	return s.str();
 }

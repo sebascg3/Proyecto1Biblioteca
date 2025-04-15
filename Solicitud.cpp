@@ -9,6 +9,14 @@ Solicitud::Solicitud(Usuario* us, Material* mat, string fP, string fD, bool ret)
 	retrasado = ret;
 }
 
+Solicitud::Solicitud(Solicitud* s) {
+	usuario = s->usuario;
+	material = s->material;
+	fPrestamo = s->fPrestamo;
+	fDevolucion = s->fDevolucion;
+	retrasado = s->retrasado;
+}
+
 Solicitud::Solicitud()
 {
 	usuario = nullptr;
