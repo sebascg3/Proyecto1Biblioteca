@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClInclude Include="Articulos.h" />
     <ClInclude Include="Libros.h" />
-    <ClInclude Include="ListaMateriales.h" />
     <ClInclude Include="ListaSolicitud.h" />
     <ClInclude Include="ListaUsuario.h" />
     <ClInclude Include="Material.h" />
