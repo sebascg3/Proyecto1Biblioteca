@@ -4,26 +4,26 @@ Solicitud::Solicitud(Usuario* us, Material* mat, string fP, string fD, bool ret)
 {
 	usuario = us;
 	material = mat;
-	fPrestamo = fP;
-	fDevolucion = fD;
-	retrasado = ret;
+	gest->setFechaP(fP);
+	gest->setFechaD(fD);
+	gest->setRet(ret);
 }
 
 Solicitud::Solicitud(Solicitud* s) {
 	usuario = s->usuario;
 	material = s->material;
-	fPrestamo = s->fPrestamo;
-	fDevolucion = s->fDevolucion;
-	retrasado = s->retrasado;
+	gest->setFechaP(s->getfechaP());
+	gest->setFechaP(s->getfechaD()); 
+	gest->setRet(s->getRet());
 }
 
 Solicitud::Solicitud()
 {
 	usuario = nullptr;
 	material = nullptr;
-	fPrestamo = " ";
-	fDevolucion = " ";
-	retrasado = false;
+	gest->setFechaP(" ");
+	gest->setFechaD(" ");
+	gest->setRet(false);
 }
 
 Solicitud::~Solicitud()
@@ -44,33 +44,32 @@ Material* Solicitud::getMaterial()
 
 string Solicitud::getfechaP()
 {
-	return fPrestamo;
+	return gest->getfechaP();
 }
 
 string Solicitud::getfechaD()
 {
-	return fDevolucion;
+	return gest->getfechaD();
 }
 
 bool Solicitud::getRet()
 {
-	return retrasado;
+	return gest->getRet();
 }
 
 void Solicitud::setRet(bool ret)
 {
-	retrasado = ret;
+	gest->setRet(ret);
 }
 
 string Solicitud::mostrarSoli()
 {
 	stringstream s;
-	s << "/////////Solicitud/////////" << endl;
 	s << "Usuario:" << usuario->getNombre() << endl;
 	s << "Material: " << material->getTipo() <<";"<<"Nombre: "<<material->getTitulo()<< endl;
-	s << "Fecha de prestamo:" << fPrestamo << endl;
-	s << "Fecha devolucion:" << fDevolucion << endl;
-	if (retrasado == true) {
+	s << "Fecha de prestamo:" << gest->getfechaP() << endl;
+	s << "Fecha devolucion:" << gest->getfechaD() << endl;
+	if (gest->getRet() == true) {
 		s << "Entrega retrasada" << endl;
 	}
 	s << "/////////////////////////////////////////////" << endl;

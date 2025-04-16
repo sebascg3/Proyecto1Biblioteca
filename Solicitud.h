@@ -3,6 +3,7 @@
 
 #include "Usuario.h"
 #include "Material.h"
+#include "GestorPrestamos.h"
 #include <string>
 
 using namespace std;
@@ -11,9 +12,7 @@ class Solicitud {
 private:
     Usuario* usuario;
     Material* material;
-    string fPrestamo;
-    string fDevolucion;
-    bool retrasado;
+    GestorPrestamos* gest;
 
 public:
     Solicitud(Usuario*, Material*, string, string, bool);
