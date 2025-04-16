@@ -51,10 +51,10 @@
     <ClInclude Include="ListaSolicitud.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\NodoMaterial.h">
+    <ClInclude Include="ListaMateriales.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\ListaMateriales.h">
+    <ClInclude Include="NodoMaterial.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,7 +95,7 @@
     <ClCompile Include="ListaSolicitud.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Downloads\ListaMateriales.cpp">
+    <ClCompile Include="ListaMateriales.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
