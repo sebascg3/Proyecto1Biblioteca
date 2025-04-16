@@ -127,10 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Downloads\ListaMateriales.h" />
-    <ClInclude Include="..\..\..\Downloads\NodoMaterial.h" />
     <ClInclude Include="Articulos.h" />
     <ClInclude Include="Libros.h" />
+    <ClInclude Include="ListaMateriales.h" />
     <ClInclude Include="ListaSolicitud.h" />
     <ClInclude Include="ListaUsuario.h" />
     <ClInclude Include="Material.h" />
@@ -143,7 +142,6 @@
     <ClInclude Include="Videos.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Downloads\ListaMateriales.cpp" />
     <ClCompile Include="Articulos.cpp" />
     <ClCompile Include="Libros.cpp" />
     <ClCompile Include="ListaSolicitud.cpp" />
