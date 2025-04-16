@@ -1,4 +1,6 @@
 #include "ListaSolicitud.h"
+#include "Solicitud.h"
+
 
 ListaSolicitud::ListaSolicitud() {
 	primero = nullptr;
