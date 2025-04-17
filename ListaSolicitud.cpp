@@ -86,3 +86,22 @@ Solicitud* ListaSolicitud::obtenerEnPosicion(int pos) {
 
 	return aux->getInfo();
 }
+
+void ListaSolicitud::mostrarPrestamosPorUsuario(string cedula) {
+	NodoSolicitud* actual = primero;
+	bool encontrado = false;
+
+	while (actual != nullptr) {
+		Solicitud* solicitud = actual->getInfo();
+		if (solicitud->getUsuario()->getCedula() == cedula) {
+			cout << solicitud->mostrarSoli() << endl;
+			encontrado = true;
+		}
+		actual = actual->getSig();
+	}
+
+	if (!encontrado) {
+		cout << "No se encontraron prestamos para el usuario con cedula: " << cedula << endl;
+	}
+}
+

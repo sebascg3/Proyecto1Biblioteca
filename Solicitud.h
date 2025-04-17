@@ -15,6 +15,7 @@ private:
     GestorPrestamos* gest;
 
 public:
+    Solicitud(Usuario*, Material*, string);
     Solicitud(Usuario*, Material*, string, string, bool);
     Solicitud(Solicitud*);
     Solicitud();

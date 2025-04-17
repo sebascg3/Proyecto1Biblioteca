@@ -1,47 +1,34 @@
-#include "Material.h"
+#include "Material.h"  
 
 Material::Material(string numeroClasificacion, int numeroCatalogo, string titulo, string autor, string palabraClave, string tipo, bool estado)
-    : numeroClasificacion(numeroClasificacion), numeroCatalogo(numeroCatalogo), titulo(titulo), autor(autor), palabraClave(palabraClave), tipo(tipo), estado(estado) {
+    : codigo(numeroClasificacion), titulo(titulo), disponible(estado) {
 }
 
-string Material::getNumeroClasificacion() const {
-    return numeroClasificacion;
+Material::Material(string codigo, string titulo):
+    codigo(codigo), titulo(titulo), disponible(true){ }
+
+string Material::getCodigo() {
+    return codigo;
 }
 
-int Material::getNumeroCatalogo() const {
-    return numeroCatalogo;
-}
-
-string Material::getTitulo() const {
+string Material::getTitulo() {
     return titulo;
 }
 
-string Material::getAutor() const {
-    return autor;
+bool Material::isDisponible() {
+    return disponible;
 }
 
-string Material::getPalabraClave() const {
-    return palabraClave;
+void Material::setTitulo(string tit) {
+    titulo = tit;
 }
 
-string Material::getTipo() const {
-    return tipo;
-}
-
-bool Material::getEstado() const {
-    return estado;
-}
-
-void Material::setEstado(bool nuevoEstado) {
-    estado = nuevoEstado;
+void Material::setDisponible(bool disp) {
+    disponible = disp;
 }
 
 void Material::mostrarInformacion() const {
-    cout << "Numero de Clasificacion: " << numeroClasificacion << endl;
-    cout << "Numero de Catalogo: " << numeroCatalogo << endl;
-    cout << "Titulo: " << titulo << endl;
-    cout << "Autor: " << autor << endl;
-    cout << "Palabra Clave: " << palabraClave << endl;
-    cout << "Tipo: " << tipo << endl;
-    cout << "Estado: " << (estado ? "Disponible" : "No Disponible") << endl;
+    cout << "Código: " << codigo << endl;
+    cout << "Título: " << titulo << endl;
+    cout << "Disponible: " << (disponible ? "Sí" : "No") << endl;
 }

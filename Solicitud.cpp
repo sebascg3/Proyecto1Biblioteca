@@ -1,5 +1,15 @@
 #include "Solicitud.h"
 
+#include "Solicitud.h"
+
+Solicitud::Solicitud(Usuario* u, Material* m, string tipo)
+	: usuario(u), material(m), gest(nullptr) {
+	if (tipo == "prestamo") {
+		gest = new GestorPrestamos("fechaPrestamo", "fechaDevolucion", false);
+	}
+}
+
+
 Solicitud::Solicitud(Usuario* us, Material* mat, string fP, string fD, bool ret)
 {
 	usuario = us;
@@ -61,7 +71,7 @@ string Solicitud::mostrarSoli()
 {
 	stringstream s;
 	s << "Usuario:" << usuario->getNombre() << endl;
-	s << "Material: " << material->getTipo() <<";"<<"Nombre: "<<material->getTitulo()<< endl;
+	s << "Material: " << material->getTitulo() <<";"<<"Nombre: "<<material->getTitulo()<< endl;
 	s << "Fecha de prestamo:" << gest->getfechaP() << endl;
 	s << "Fecha devolucion:" << gest->getfechaD() << endl;
 	if (gest->getRet() == true) {

@@ -1,5 +1,9 @@
 #include "GestorPrestamos.h"
 
+GestorPrestamos::GestorPrestamos(string fP, string fD, bool ret)
+	: fPrestamo(fP), fDevolucion(fD), retrasado(ret) {
+}
+
 string GestorPrestamos::getfechaP()
 {
 	return fPrestamo;

@@ -12,4 +12,6 @@ public:
 	string toString();
 	bool eliminaFinal();
 	Solicitud* obtenerEnPosicion(int);
+	void mostrarPrestamosPorUsuario(string cedula);
+
 };

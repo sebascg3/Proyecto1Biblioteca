@@ -1,37 +1,40 @@
 #include "Usuario.h"
 
-Usuario::Usuario(string nom, string ced, bool est)
-{
-	nombre = nom;
-	cedula = ced;
-	estado = est;
+Usuario::Usuario(string nom, string ced, bool est) {
+    nombre = nom;
+    cedula = ced;
+    estado = est;
 }
 
 Usuario::Usuario(Usuario* u) {
-	nombre = u->nombre;
-	cedula = u->cedula;
-	estado = u->estado;
+    nombre = u->nombre;
+    cedula = u->cedula;
+    estado = u->estado;
 }
 
-string Usuario::getNombre()
-{
-	return nombre;
+Usuario::Usuario(string nom, string ced) : nombre(nom), cedula(ced), estado(true) {
 }
 
-string Usuario::getCedula()
-{
-	return cedula;
+
+string Usuario::getNombre() {
+    return nombre;
 }
 
-bool Usuario::getEstado()
-{
-	return estado;
+string Usuario::getCedula() {
+    return cedula;
 }
 
-string Usuario::mostrarUsuario()
-{
-	stringstream s;
-	s << cedula << ":" << nombre << endl;
-	s << estado << endl;
-	return s.str();
+bool Usuario::getEstado() {
+    return estado;
+}
+
+void Usuario::setNombre(string n) {
+    nombre = n;
+}
+
+string Usuario::mostrarUsuario() {
+    stringstream s;
+    s << "Cedula: " << cedula << ", Nombre: " << nombre << endl;
+    s << "Estado: " << (estado ? "Activo" : "Inactivo") << endl;
+    return s.str();
 }
