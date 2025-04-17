@@ -4,13 +4,11 @@
 using namespace std;
 
 InterfazUsuario::InterfazUsuario() {
-
     controlador = new Controlador();
 }
 
 InterfazUsuario::~InterfazUsuario() {
     delete controlador;
-
 }
 
 void InterfazUsuario::mostrarMenuPrincipal() {
@@ -24,11 +22,9 @@ void InterfazUsuario::mostrarMenuPrincipal() {
         cout << "0. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
-        system("cls");
 
         switch (opcion) {
         case 1:
-
             system("pause"); system("cls");
             menuMateriales();
             break;
@@ -42,17 +38,6 @@ void InterfazUsuario::mostrarMenuPrincipal() {
             break;
         case 4:
             system("pause"); system("cls");
-=======
-            menuMateriales();
-            break;
-        case 2:
-            menuUsuarios();
-            break;
-        case 3:
-            menuPrestamos();
-            break;
-        case 4:
-
             menuReportes();
             break;
         case 0:
@@ -74,7 +59,6 @@ void InterfazUsuario::menuMateriales() {
         cout << "3. Volver al menu principal\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
-        system("cls");
 
         switch (opcion) {
         case 1:
@@ -101,15 +85,10 @@ void InterfazUsuario::menuUsuarios() {
         cout << "3. Volver al menu principal\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
-        system("cls");
 
         switch (opcion) {
         case 1:
-
             controlador->incluirUsuario();
-
-            agregarUsuario();
-
             break;
         case 2:
             controlador->modificarUsuario();
@@ -123,39 +102,6 @@ void InterfazUsuario::menuUsuarios() {
     } while (opcion != 3);
 }
 
-void InterfazUsuario::agregarUsuario() {
-    string nomU, cedU;
-    bool estU;
-
-    cout << "--- 1. INCLUIR NUEVO USUARIO ---\n";
-    cout << "Ingrese el nombre: "; cin >> nomU;
-    cout << "Ingrese el numero de cedula: "; cin >> cedU;
-    system("cls");
-    int estado;
-    cout << "Activo = 1 / Inactivo = 0\n";
-    cout << "Ingrese el estado del Usuario: "; cin >> estado;
-    while (estado != 0 && estado != 1) {
-        cout << "Entrada invalida. Ingrese 1 o 0: ";
-        cin >> estado;
-    }
-    estU = static_cast<bool>(estado);
-
-    if (biblio->getLisUsu()->encontrado(cedU)) {
-        cout << "Error: Ya existe un Usuario registrado con el mismo ID...\n\n";
-        system("pause");
-        system("cls");
-        return;
-    }
-
-    Usuario* nuevoU = new Usuario(nomU, cedU, estU);
-    biblio->getLisUsu()->insertarFinal(nuevoU);
-    cout << "Usuario ingresado satisfactoriamente...\n\n";
-
-    cout << "<<Digita ENTER>>\n";
-    cin.get();
-    cin.get();
-}
-
 void InterfazUsuario::menuPrestamos() {
     int opcion;
     do {
@@ -165,7 +111,6 @@ void InterfazUsuario::menuPrestamos() {
         cout << "3. Volver al menu principal\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
-        system("cls");
 
         switch (opcion) {
         case 1:
@@ -194,24 +139,13 @@ void InterfazUsuario::menuReportes() {
         cout << "5. Volver al menu principal\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
-        system("cls");
 
         switch (opcion) {
         case 1:
             controlador->reporteInventario();
             break;
         case 2:
-
             controlador->reporteUsuarios();
-
-            cout << "---2. REPORTE DE USUARIOS---\n";
-            cout << biblio->getLisUsu()->toString() << endl;
-
-            cout << "<<Digita ENTER>>\n";
-            cin.get();
-            cin.get();
-
-
             break;
         case 3:
             controlador->reporteMaterialesPrestados();
