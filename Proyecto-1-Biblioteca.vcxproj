@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="Articulos.h" />
     <ClInclude Include="GestorPrestamos.h" />
+    <ClInclude Include="InterfazUsuario.h" />
     <ClInclude Include="Libros.h" />
     <ClInclude Include="ListaMateriales.h" />
     <ClInclude Include="ListaSolicitud.h" />
@@ -146,10 +147,12 @@
   <ItemGroup>
     <ClCompile Include="Articulos.cpp" />
     <ClCompile Include="GestorPrestamos.cpp" />
+    <ClCompile Include="InterfazUsuario.cpp" />
     <ClCompile Include="Libros.cpp" />
     <ClCompile Include="ListaMateriales.cpp" />
     <ClCompile Include="ListaSolicitud.cpp" />
     <ClCompile Include="ListaUsuario.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MaterialDigital.cpp" />
     <ClCompile Include="NodoSolicitud.cpp" />
