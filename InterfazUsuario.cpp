@@ -1,7 +1,15 @@
 #include "InterfazUsuario.h"
 #include <iostream>
-#include <cstdlib> 
+#include <cstdlib>
 using namespace std;
+
+InterfazUsuario::InterfazUsuario() {
+    controlador = new Controlador();
+}
+
+InterfazUsuario::~InterfazUsuario() {
+    delete controlador;
+}
 
 void InterfazUsuario::mostrarMenuPrincipal() {
     int opcion;
@@ -17,23 +25,19 @@ void InterfazUsuario::mostrarMenuPrincipal() {
 
         switch (opcion) {
         case 1:
-            system("pause");
-            system("cls");
+            system("pause"); system("cls");
             menuMateriales();
             break;
         case 2:
-            system("pause");
-            system("cls");
+            system("pause"); system("cls");
             menuUsuarios();
             break;
         case 3:
-            system("pause");
-            system("cls");
+            system("pause"); system("cls");
             menuPrestamos();
             break;
         case 4:
-            system("pause");
-            system("cls");
+            system("pause"); system("cls");
             menuReportes();
             break;
         case 0:
@@ -41,9 +45,7 @@ void InterfazUsuario::mostrarMenuPrincipal() {
             break;
         default:
             cout << "Opcion invalida.\n";
-            system("pause");
-            system("cls");
-            break;
+            system("pause"); system("cls");
         }
     } while (opcion != 0);
 }
@@ -60,22 +62,17 @@ void InterfazUsuario::menuMateriales() {
 
         switch (opcion) {
         case 1:
-            cout << "Funcion para incluir material\n";
-            system("pause");
-            system("cls");
+            controlador->incluirMaterial();
             break;
         case 2:
-            cout << "Funcion para modificar material\n";
-            system("pause");
-            system("cls");
+            controlador->modificarMaterial();
             break;
         case 3:
             return;
         default:
             cout << "Opcion invalida.\n";
-            system("pause");
-            system("cls");
         }
+        system("pause"); system("cls");
     } while (opcion != 3);
 }
 
@@ -91,22 +88,17 @@ void InterfazUsuario::menuUsuarios() {
 
         switch (opcion) {
         case 1:
-            cout << "Funcion para incluir usuario\n";
-            system("pause");
-            system("cls");
+            controlador->incluirUsuario();
             break;
         case 2:
-            cout << "Funcion para modificar usuario\n";
-            system("pause");
-            system("cls");
+            controlador->modificarUsuario();
             break;
         case 3:
             return;
         default:
             cout << "Opcion invalida.\n";
-            system("pause");
-            system("cls");
         }
+        system("pause"); system("cls");
     } while (opcion != 3);
 }
 
@@ -122,22 +114,17 @@ void InterfazUsuario::menuPrestamos() {
 
         switch (opcion) {
         case 1:
-            cout << "Funcion para registrar prestamo\n";
-            system("pause");
-            system("cls");
+            controlador->registrarPrestamo();
             break;
         case 2:
-            cout << "Funcion para registrar devolucion\n";
-            system("pause");
-            system("cls");
+            controlador->registrarDevolucion();
             break;
         case 3:
             return;
         default:
             cout << "Opcion invalida.\n";
-            system("pause");
-            system("cls");
         }
+        system("pause"); system("cls");
     } while (opcion != 3);
 }
 
@@ -155,31 +142,22 @@ void InterfazUsuario::menuReportes() {
 
         switch (opcion) {
         case 1:
-            cout << "Mostrando inventario...\n";
-            system("pause");
-            system("cls");
+            controlador->reporteInventario();
             break;
         case 2:
-            cout << "Mostrando usuarios...\n";
-            system("pause");
-            system("cls");
+            controlador->reporteUsuarios();
             break;
         case 3:
-            cout << "Mostrando materiales en prestamo...\n";
-            system("pause");
-            system("cls");
+            controlador->reporteMaterialesPrestados();
             break;
         case 4:
-            cout << "Mostrando prestamos por usuario...\n";
-            system("pause");
-            system("cls");
+            controlador->reportePrestamosPorUsuario();
             break;
         case 5:
             return;
         default:
             cout << "Opcion invalida.\n";
-            system("pause");
-            system("cls");
         }
+        system("pause"); system("cls");
     } while (opcion != 5);
 }

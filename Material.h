@@ -1,32 +1,28 @@
-#ifndef MATERIAL_H
-#define MATERIAL_H
+#ifndef MATERIAL_H  
+#define MATERIAL_H  
 
-#include <iostream>
-#include <string>
+#include <string>  
+#include <iostream>  
+using namespace std;  
 
-using namespace std;
+class Material {  
+private:  
+   string codigo;  
+   string titulo;  
+   bool disponible;  
 
-class Material {
-private:
-    string numeroClasificacion;
-    int numeroCatalogo;
-    string titulo;
-    string autor;
-    string palabraClave;
-    string tipo;
-    bool estado;
+public:  
+   Material(string numeroClasificacion, int numeroCatalogo, string titulo, string autor, string palabraClave, string tipo, bool estado);  
+   Material(string codigo, string titulo);
 
-public:
-    Material(string numeroClasificacion, int numeroCatalogo, string titulo, string autor, string palabraClave, string tipo, bool estado);
-    string getNumeroClasificacion() const;
-    int getNumeroCatalogo() const;
-    string getTitulo() const;
-    string getAutor() const;
-    string getPalabraClave() const;
-    string getTipo() const;
-    bool getEstado() const;
-    void setEstado(bool nuevoEstado);
-    void mostrarInformacion() const;
-};
+   string getCodigo();  
+   string getTitulo();  
+   bool isDisponible();  
+
+   void setTitulo(string tit);  
+   void setDisponible(bool disp);  
+
+   virtual void mostrarInformacion() const; // Cambiado a virtual y const  
+};  
 
 #endif

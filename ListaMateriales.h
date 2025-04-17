@@ -1,19 +1,25 @@
-#include "NodoMaterial.h"
+#ifndef LISTAMATERIALES_H
+#define LISTAMATERIALES_H
 
-#pragma once
+#include "NodoMaterial.h"
+#include <string>
+#include <sstream>
+
 class ListaMateriales {
 private:
-	NodoMaterial* primero;
+    NodoMaterial* primero;
 
 public:
-    ListaMateriales() : primero(nullptr) {}
+    ListaMateriales();
+    ~ListaMateriales();
 
-    void insertar(Material* m);
-    void toString();
-    NodoMaterial* buscar(Material* m);
+    void insertarMaterial(Material* m);
+    Material* buscarMaterial(string codigo); 
+    string mostrarMaterialesPrestados();
+
     bool estaVacia();
     Material* obtenerEnPosicion(int pos);
-    ~ListaMateriales();
+    string toString();
 };
 
-
+#endif
