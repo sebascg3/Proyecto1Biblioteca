@@ -4,32 +4,27 @@ Solicitud::Solicitud(Usuario* us, Material* mat, string fP, string fD, bool ret)
 {
 	usuario = us;
 	material = mat;
-	gest->setFechaP(fP);
-	gest->setFechaD(fD);
-	gest->setRet(ret);
+	gest = new GestorPrestamos(fP, fD, ret);
 }
 
 Solicitud::Solicitud(Solicitud* s) {
 	usuario = s->usuario;
 	material = s->material;
-	gest->setFechaP(s->getfechaP());
-	gest->setFechaP(s->getfechaD()); 
-	gest->setRet(s->getRet());
+	gest = new GestorPrestamos(s->getfechaP(), s->getfechaD(), s->getRet());
 }
 
 Solicitud::Solicitud()
 {
 	usuario = nullptr;
 	material = nullptr;
-	gest->setFechaP(" ");
-	gest->setFechaD(" ");
-	gest->setRet(false);
+	gest = new GestorPrestamos(" ", " ", false);
 }
 
 Solicitud::~Solicitud()
 {
 	delete usuario;
 	delete material;
+	delete gest;
 }
 
 Usuario* Solicitud::getUsuario()

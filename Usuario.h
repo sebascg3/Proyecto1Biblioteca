@@ -20,4 +20,4 @@ public:
     string mostrarUsuario();
 };
 
-#endif // USUARIO_H
+#endif
