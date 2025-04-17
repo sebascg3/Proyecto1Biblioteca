@@ -14,6 +14,7 @@ InterfazUsuario::~InterfazUsuario() {
 void InterfazUsuario::mostrarMenuPrincipal() {
     int opcion;
     do {
+        system("cls");
         cout << "===== SISTEMA DE BIBLIOTECA =====\n";
         cout << "1. Gestionar materiales\n";
         cout << "2. Gestionar usuarios\n";
@@ -25,19 +26,15 @@ void InterfazUsuario::mostrarMenuPrincipal() {
 
         switch (opcion) {
         case 1:
-            system("pause"); system("cls");
             menuMateriales();
             break;
         case 2:
-            system("pause"); system("cls");
             menuUsuarios();
             break;
         case 3:
-            system("pause"); system("cls");
             menuPrestamos();
             break;
         case 4:
-            system("pause"); system("cls");
             menuReportes();
             break;
         case 0:
@@ -45,7 +42,7 @@ void InterfazUsuario::mostrarMenuPrincipal() {
             break;
         default:
             cout << "Opcion invalida.\n";
-            system("pause"); system("cls");
+            system("pause");
         }
     } while (opcion != 0);
 }
@@ -53,6 +50,7 @@ void InterfazUsuario::mostrarMenuPrincipal() {
 void InterfazUsuario::menuMateriales() {
     int opcion;
     do {
+        system("cls");
         cout << "--- GESTION DE MATERIALES ---\n";
         cout << "1. Incluir nuevo material\n";
         cout << "2. Modificar material existente\n";
@@ -71,14 +69,15 @@ void InterfazUsuario::menuMateriales() {
             return;
         default:
             cout << "Opcion invalida.\n";
+            system("pause");
         }
-        system("pause"); system("cls");
     } while (opcion != 3);
 }
 
 void InterfazUsuario::menuUsuarios() {
     int opcion;
     do {
+        system("cls");
         cout << "--- GESTION DE USUARIOS ---\n";
         cout << "1. Incluir nuevo usuario\n";
         cout << "2. Modificar datos de usuario\n";
@@ -97,14 +96,15 @@ void InterfazUsuario::menuUsuarios() {
             return;
         default:
             cout << "Opcion invalida.\n";
+            system("pause");
         }
-        system("pause"); system("cls");
     } while (opcion != 3);
 }
 
 void InterfazUsuario::menuPrestamos() {
     int opcion;
     do {
+        system("cls");
         cout << "--- PRESTAMOS Y DEVOLUCIONES ---\n";
         cout << "1. Registrar prestamo\n";
         cout << "2. Registrar devolucion\n";
@@ -123,14 +123,15 @@ void InterfazUsuario::menuPrestamos() {
             return;
         default:
             cout << "Opcion invalida.\n";
+            system("pause");
         }
-        system("pause"); system("cls");
     } while (opcion != 3);
 }
 
 void InterfazUsuario::menuReportes() {
     int opcion;
     do {
+        system("cls");
         cout << "--- REPORTES ---\n";
         cout << "1. Reporte de inventario de materiales\n";
         cout << "2. Reporte de usuarios\n";
@@ -157,7 +158,7 @@ void InterfazUsuario::menuReportes() {
             return;
         default:
             cout << "Opcion invalida.\n";
+            system("pause");
         }
-        system("pause"); system("cls");
     } while (opcion != 5);
 }
