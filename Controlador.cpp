@@ -1,6 +1,7 @@
 #include "Controlador.h"
 #include <iostream>
 #include <string>
+#include <cstdlib> // Para system("pause") y system("cls")
 
 using namespace std;
 
@@ -19,6 +20,7 @@ Controlador::~Controlador() {
 // === MATERIALES ===
 
 void Controlador::incluirMaterial() {
+    system("cls");
     cout << "== Incluir nuevo material ==" << endl;
 
     string codigo, titulo;
@@ -32,9 +34,12 @@ void Controlador::incluirMaterial() {
     materiales->insertarMaterial(nuevo);
 
     cout << "Material incluido exitosamente.\n";
+    system("pause");
+    system("cls");
 }
 
 void Controlador::modificarMaterial() {
+    system("cls");
     cout << "== Modificar material ==" << endl;
 
     string codigo;
@@ -53,11 +58,14 @@ void Controlador::modificarMaterial() {
     else {
         cout << "Material no encontrado.\n";
     }
+    system("pause");
+    system("cls");
 }
 
 // === USUARIOS ===
 
 void Controlador::incluirUsuario() {
+    system("cls");
     cout << "== Incluir nuevo usuario ==" << endl;
 
     string cedula, nombre;
@@ -71,10 +79,12 @@ void Controlador::incluirUsuario() {
     usuarios->insertarFinal(nuevo);
 
     cout << "Usuario incluido exitosamente.\n";
+    system("pause");
+    system("cls");
 }
 
-
 void Controlador::modificarUsuario() {
+    system("cls");
     cout << "== Modificar usuario ==" << endl;
 
     string cedula;
@@ -93,11 +103,14 @@ void Controlador::modificarUsuario() {
     else {
         cout << "Usuario no encontrado.\n";
     }
+    system("pause");
+    system("cls");
 }
 
 // === PRESTAMOS ===
 
 void Controlador::registrarPrestamo() {
+    system("cls");
     cout << "== Registrar prestamo ==" << endl;
 
     string cedula, codigo;
@@ -118,9 +131,12 @@ void Controlador::registrarPrestamo() {
     else {
         cout << "No se pudo registrar el prestamo. Verifique cedula, codigo o disponibilidad.\n";
     }
+    system("pause");
+    system("cls");
 }
 
 void Controlador::registrarDevolucion() {
+    system("cls");
     cout << "== Registrar devolucion ==" << endl;
 
     string codigo;
@@ -136,30 +152,44 @@ void Controlador::registrarDevolucion() {
     else {
         cout << "No se puede devolver el material. Verifique el codigo o si ya fue devuelto.\n";
     }
+    system("pause");
+    system("cls");
 }
 
 // === REPORTES ===
 
 void Controlador::reporteInventario() {
+    system("cls");
     cout << "== Reporte de inventario de materiales ==\n";
     materiales->toString();
+    system("pause");
+    system("cls");
 }
 
 void Controlador::reporteUsuarios() {
+    system("cls");
     cout << "== Reporte de usuarios ==\n";
     usuarios->toString();
+    system("pause");
+    system("cls");
 }
 
 void Controlador::reporteMaterialesPrestados() {
+    system("cls");
     cout << "== Reporte de materiales en prestamo ==\n";
     materiales->mostrarMaterialesPrestados();
+    system("pause");
+    system("cls");
 }
 
 void Controlador::reportePrestamosPorUsuario() {
+    system("cls");
     cout << "== Reporte de prestamos por usuario ==\n";
     string cedula;
     cout << "Ingrese la cedula del usuario: ";
     cin >> cedula;
 
     solicitudes->mostrarPrestamosPorUsuario(cedula);
+    system("pause");
+    system("cls");
 }
