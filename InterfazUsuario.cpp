@@ -1,6 +1,6 @@
 #include "InterfazUsuario.h"
 #include <iostream>
-#include <cstdlib> // para system()
+#include <cstdlib> 
 using namespace std;
 
 void InterfazUsuario::mostrarMenuPrincipal() {
@@ -51,7 +51,7 @@ void InterfazUsuario::mostrarMenuPrincipal() {
 void InterfazUsuario::menuMateriales() {
     int opcion;
     do {
-        cout << "\n--- GESTION DE MATERIALES ---\n";
+        cout << "--- GESTION DE MATERIALES ---\n";
         cout << "1. Incluir nuevo material\n";
         cout << "2. Modificar material existente\n";
         cout << "3. Volver al menu principal\n";
@@ -82,7 +82,7 @@ void InterfazUsuario::menuMateriales() {
 void InterfazUsuario::menuUsuarios() {
     int opcion;
     do {
-        cout << "\n--- GESTION DE USUARIOS ---\n";
+        cout << "--- GESTION DE USUARIOS ---\n";
         cout << "1. Incluir nuevo usuario\n";
         cout << "2. Modificar datos de usuario\n";
         cout << "3. Volver al menu principal\n";
@@ -113,7 +113,7 @@ void InterfazUsuario::menuUsuarios() {
 void InterfazUsuario::menuPrestamos() {
     int opcion;
     do {
-        cout << "\n--- PRESTAMOS Y DEVOLUCIONES ---\n";
+        cout << "--- PRESTAMOS Y DEVOLUCIONES ---\n";
         cout << "1. Registrar prestamo\n";
         cout << "2. Registrar devolucion\n";
         cout << "3. Volver al menu principal\n";
@@ -144,7 +144,7 @@ void InterfazUsuario::menuPrestamos() {
 void InterfazUsuario::menuReportes() {
     int opcion;
     do {
-        cout << "\n--- REPORTES ---\n";
+        cout << "--- REPORTES ---\n";
         cout << "1. Reporte de inventario de materiales\n";
         cout << "2. Reporte de usuarios\n";
         cout << "3. Reporte de materiales en prestamo\n";
