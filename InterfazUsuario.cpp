@@ -42,10 +42,10 @@ void InterfazUsuario::mostrarMenuPrincipal() {
             break;
         case 4:
             system("pause"); system("cls");
-=======
+
             menuMateriales();
             break;
-        case 2:
+ /*       case 2:
             menuUsuarios();
             break;
         case 3:
@@ -54,7 +54,7 @@ void InterfazUsuario::mostrarMenuPrincipal() {
         case 4:
 
             menuReportes();
-            break;
+            break;*/
         case 0:
             cout << "Saliendo del sistema...\n";
             break;
