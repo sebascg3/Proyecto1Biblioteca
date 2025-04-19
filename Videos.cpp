@@ -2,7 +2,7 @@
 #include <iostream>
 
 Videos::Videos(string numeroClasificacion, int numeroCatalogo, string titulo, string autor, string palabraClave, string tipo, bool estado, string duracion, string formato, string tema)
-    : Material(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado), duracion(duracion), formato(formato), tema(tema) {
+    : Material(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, "video", estado), duracion(duracion), formato(formato), tema(tema) {
 }
 
 string Videos::getDuracion() const {

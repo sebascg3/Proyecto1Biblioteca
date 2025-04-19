@@ -66,6 +66,9 @@
     <ClInclude Include="Controlador.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="administradorAlmacenamiento.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Material.cpp">
@@ -117,6 +120,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Controlador.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="administradorAlmacenamiento.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
