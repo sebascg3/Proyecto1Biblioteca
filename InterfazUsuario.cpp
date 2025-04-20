@@ -35,8 +35,21 @@ void InterfazUsuario::mostrarMenuPrincipal() {
             menuPrestamos();
             break;
         case 4:
-            menuReportes();
+
+            system("pause"); 
+            system("cls");
+
+            menuMateriales();
             break;
+       case 2:
+            menuUsuarios();
+            break;
+        case 3:
+            menuPrestamos();
+            break;
+        case 4:
+            menuReportes();
+            break;*/
         case 0:
             cout << "Saliendo del sistema...\n";
             break;

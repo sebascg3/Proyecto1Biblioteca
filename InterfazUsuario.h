@@ -1,5 +1,9 @@
+#include "Controlador.h"  
+#include "Biblioteca.h"
+
 #ifndef INTERFAZUSUARIO_H
 #define INTERFAZUSUARIO_H
+
 
 #include "Controlador.h"
 
