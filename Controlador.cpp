@@ -9,6 +9,7 @@ Controlador::Controlador() {
     solicitudes = new ListaSolicitud();
     usuarios = new ListaUsuario();
     materiales = new ListaMateriales();
+    adm = new administradorAlmacenamiento();
 }
 
 Controlador::~Controlador() {
@@ -193,3 +194,25 @@ void Controlador::reportePrestamosPorUsuario() {
     system("pause");
     system("cls");
 }
+
+void Controlador::saveMateriales(ListaMateriales* lis, ofstream& file)
+{
+    adm->saveListaMateriales(lis, file);
+}
+
+void Controlador::saveUsuarios(ListaUsuario* lis, ofstream& file)
+{
+    adm->saveListaUsuarios(lis, file);
+}
+
+void Controlador::readMateriales(ListaMateriales* lis, ifstream& file)
+{
+    adm->readListaMateriales(lis, file);
+}
+
+void Controlador::readUsuarios(ListaUsuario* lis, ifstream& file)
+{
+    adm->readListaUsuarios(lis, file);
+}
+
+

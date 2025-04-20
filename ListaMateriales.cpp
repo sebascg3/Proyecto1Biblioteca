@@ -82,3 +82,13 @@ string ListaMateriales::toString() {
 
     return s.str();
 }
+
+NodoMaterial* ListaMateriales::getPrimero()
+{
+    return primero;
+}
+
+void ListaMateriales::setPrimeroNull()
+{
+    primero = NULL;
+}

@@ -20,6 +20,9 @@ public:
     bool estaVacia();
     Material* obtenerEnPosicion(int pos);
     string toString();
+
+    NodoMaterial* getPrimero();
+    void setPrimeroNull();
 };
 
 #endif

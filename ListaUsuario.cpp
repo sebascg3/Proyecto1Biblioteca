@@ -95,6 +95,16 @@ Usuario* ListaUsuario::obtenerUsuario(string ced) {
 	return nullptr;
 }
 
+NodoUsuario* ListaUsuario::getPrimero()
+{
+	return primero;
+}
+
+void ListaUsuario::setPrimeroNull()
+{
+	primero = NULL;
+}
+
 ListaUsuario::~ListaUsuario() {
 	while (primero != nullptr) {
 		actual = primero;

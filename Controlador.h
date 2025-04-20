@@ -4,12 +4,14 @@
 #include "ListaSolicitud.h"
 #include "ListaUsuario.h"
 #include "ListaMateriales.h"
+#include "administradorAlmacenamiento.h"
 
 class Controlador {
 private:
     ListaSolicitud* solicitudes;
     ListaUsuario* usuarios;
     ListaMateriales* materiales;
+    administradorAlmacenamiento* adm;
 
 public:
     Controlador();
@@ -25,6 +27,14 @@ public:
     void reporteUsuarios();
     void reporteMaterialesPrestados();
     void reportePrestamosPorUsuario();
+
+    void saveMateriales(ListaMateriales* lis, ofstream& file);
+    void saveUsuarios(ListaUsuario* lis, ofstream& file);
+
+    void readMateriales(ListaMateriales* lis, ifstream& file);
+    void readUsuarios(ListaUsuario* lis, ifstream& file);
+
+
 };
 
 #endif

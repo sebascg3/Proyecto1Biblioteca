@@ -2,7 +2,7 @@
 #include <iostream>
 
 Revistas::Revistas(string numeroClasificacion, int numeroCatalogo, string titulo, string autor, string palabraClave, string tipo, bool estado, int Numero, int Volumen, string Formato)
-    : Material(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado), Numero(Numero), Volumen(Volumen), Formato(Formato) {
+    : Material(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, "Revista", estado), Numero(Numero), Volumen(Volumen), Formato(Formato) {
 }
 
 int Revistas::getNumero() const {

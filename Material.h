@@ -9,7 +9,12 @@ class Material {
 private:  
    string codigo;  
    string titulo;  
-   bool disponible;  
+   bool disponible; 
+   int numeroCatalogo;
+   string autor;
+   string palabraClave;
+   string tipo;
+
 
 public:  
    Material(string numeroClasificacion, int numeroCatalogo, string titulo, string autor, string palabraClave, string tipo, bool estado);  
@@ -17,7 +22,11 @@ public:
 
    string getCodigo();  
    string getTitulo();  
-   bool isDisponible();  
+   bool isDisponible();
+   string getNumeroCatalogo();
+   string getTipo();
+   string getAutor();
+   string getPalabraClave();
 
    void setTitulo(string tit);  
    void setDisponible(bool disp);  

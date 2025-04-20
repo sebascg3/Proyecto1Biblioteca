@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="administradorAlmacenamiento.h" />
     <ClInclude Include="Articulos.h" />
     <ClInclude Include="Controlador.h" />
     <ClInclude Include="GestorPrestamos.h" />
@@ -146,6 +147,7 @@
     <ClInclude Include="Videos.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="administradorAlmacenamiento.cpp" />
     <ClCompile Include="Articulos.cpp" />
     <ClCompile Include="Controlador.cpp" />
     <ClCompile Include="GestorPrestamos.cpp" />
