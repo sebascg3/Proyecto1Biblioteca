@@ -30,7 +30,7 @@ void Controlador::incluirMaterial() {
 
     try {
         if (materiales->buscarMaterial(codigo) != nullptr) {
-            throw runtime_error("Ya existe un material con ese código.");
+            throw runtime_error("Ya existe un material con ese codigo.");
         }
 
         cout << "Ingrese el titulo del material: ";
@@ -88,7 +88,7 @@ void Controlador::incluirUsuario() {
 
     try {
         if (usuarios->obtenerUsuario(cedula) != nullptr) {
-            throw runtime_error("Ya existe un usuario con esa cédula.");
+            throw runtime_error("Ya existe un usuario con esa cedula.");
         }
 
         cout << "Ingrese el nombre del usuario: ";
