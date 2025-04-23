@@ -4,27 +4,22 @@
 #include <string>
 #include <sstream>
 
-#include "NodoMaterial.h"
+#include "Material.h"
+#include "Nodo.h"
 #include "ListaBase.h"
 
 
-class ListaMateriales {
-private:
-    NodoMaterial* primero;
-
+class ListaMateriales : public ListaBase {
 public:
     ListaMateriales();
     ~ListaMateriales();
 
-    void insertarMaterial(Material* m);
     Material* buscarMaterial(string codigo); 
     string mostrarMaterialesPrestados();
 
-    bool estaVacia();
     Material* obtenerEnPosicion(int pos);
-    string toString();
 
-    NodoMaterial* getPrimero();
+    Nodo* getPrimero();
     void setPrimeroNull();
 };
 

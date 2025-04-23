@@ -5,10 +5,10 @@ administradorAlmacenamiento::administradorAlmacenamiento() {};
 void administradorAlmacenamiento::saveListaMateriales(ListaMateriales* lis, ofstream& file)
 {
 
-	NodoMaterial* actual = lis->getPrimero();
+	Nodo* actual = lis->getPrimero();
 
-	while (actual != NULL) {
-		Material* materialTemp = actual->getMaterial();
+	while (actual != nullptr) {
+		Material* materialTemp = dynamic_cast<Material*>(actual->getInfo());
 
 		file << materialTemp->getCodigo() << endl
 			<< materialTemp->getTitulo() << endl
@@ -57,7 +57,7 @@ void administradorAlmacenamiento::saveListaMateriales(ListaMateriales* lis, ofst
 			file << materialdigital->getFormato() << endl;
 		}
 
-		actual = actual->getSiguiente();
+		actual = actual->getSig();
 
 	}
 
@@ -99,7 +99,7 @@ void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifst
 			file >> formato;
 
 			mat = new Libros(codigo, numeroCatalogo, titulo, autor, palabraClave, tipo, true, ISBN, editorial, formato);
-			lis->insertarMaterial(mat);
+			lis->insertarFinal(mat);
 		}
 
 		if (tipo == "revista") {
@@ -112,7 +112,7 @@ void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifst
 			file >> formato;
 
 			mat = new Revistas(codigo, numeroCatalogo, titulo, autor, palabraClave, tipo, true, numero, volumen, formato);
-			lis->insertarMaterial(mat);
+			lis->insertarFinal(mat);
 		}
 
 		if (tipo == "video") {
@@ -125,7 +125,7 @@ void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifst
 			file >> tema;
 
 			mat = new Videos(codigo, numeroCatalogo, titulo, autor, palabraClave, tipo, true, duracion, formato, tema);
-			lis->insertarMaterial(mat);
+			lis->insertarFinal(mat);
 		}
 
 		if (tipo == "video") {
@@ -138,7 +138,7 @@ void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifst
 			file >> tema;
 
 			mat = new Videos(codigo, numeroCatalogo, titulo, autor, palabraClave, tipo, true, duracion, formato, tema);
-			lis->insertarMaterial(mat);
+			lis->insertarFinal(mat);
 		}
 
 		if (tipo == "articulo") {
@@ -148,7 +148,7 @@ void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifst
 			
 
 			mat = new Articulos(codigo, numeroCatalogo, titulo, autor, palabraClave, tipo, true, formato);
-			lis->insertarMaterial(mat);
+			lis->insertarFinal(mat);
 		}
 
 		if (tipo == "materialDigital") {
@@ -158,7 +158,7 @@ void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifst
 
 
 			mat = new MaterialDigital(codigo, numeroCatalogo, titulo, autor, palabraClave, tipo, true, formato);
-			lis->insertarMaterial(mat);
+			lis->insertarFinal(mat);
 		}
 	}
 }
@@ -166,10 +166,10 @@ void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifst
 void administradorAlmacenamiento::saveListaUsuarios(ListaUsuario* lis, ofstream& file)
 {
 
-	NodoUsuario* actual = lis->getPrimero();
+	Nodo* actual = lis->getPrimero();
 
-	while (actual != NULL) {
-		Usuario* usuarioTemp = actual->getInfo();
+	while (actual != nullptr) {
+		Usuario* usuarioTemp = dynamic_cast<Usuario*>(actual->getInfo());
 
 		file << usuarioTemp->getNombre() << endl
 			<< usuarioTemp->getCedula() << endl

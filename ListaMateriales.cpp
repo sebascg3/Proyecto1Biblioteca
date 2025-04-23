@@ -6,43 +6,39 @@ ListaMateriales::ListaMateriales() {
 
 ListaMateriales::~ListaMateriales() {
     while (primero != nullptr) {
-        NodoMaterial* temp = primero;
-        primero = primero->getSiguiente();
-        delete temp->getMaterial();
+        Nodo* temp = primero;
+        primero = primero->getSig();
+        delete temp->getInfo();
         delete temp;
     }
 }
 
-void ListaMateriales::insertarMaterial(Material* m) {
-    NodoMaterial* nuevo = new NodoMaterial(m);
-    nuevo->setSiguiente(primero);
-    primero = nuevo;
-}
-
 Material* ListaMateriales::buscarMaterial(string codigo) {
-    NodoMaterial* aux = primero;
-    while (aux != nullptr) {
-        if (aux->getMaterial()->getCodigo() == codigo) {
-            return aux->getMaterial();
+    actual = primero;
+
+    while (actual != nullptr) {
+        Material* mat = dynamic_cast<Material*>(actual->getInfo());
+        if (mat != nullptr && mat->getCodigo() == codigo) {
+            return mat;
         }
-        aux = aux->getSiguiente();
+        actual = actual->getSig();
     }
     return nullptr;
 }
 
 string ListaMateriales::mostrarMaterialesPrestados() {
     stringstream s;
-    NodoMaterial* aux = primero;
+   actual = primero;
     int cont = 1;
 
-    while (aux != nullptr) {
-        Material* mat = aux->getMaterial();
+    while (actual != nullptr) {
+        Material* mat = dynamic_cast<Material*>(actual->getInfo());
         if (!mat->isDisponible()) {
             s << "Material Prestado #" << cont++ << endl;
             mat->toString();
             s << "\n";
         }
-        aux = aux->getSiguiente();
+        actual = actual->getSig();
     }
 
     if (cont == 1) s << "No hay materiales prestados actualmente.\n";
@@ -50,41 +46,20 @@ string ListaMateriales::mostrarMaterialesPrestados() {
     return s.str();
 }
 
-bool ListaMateriales::estaVacia() {
-    return primero == nullptr;
-}
-
 Material* ListaMateriales::obtenerEnPosicion(int pos) {
-    NodoMaterial* aux = primero;
+    actual = primero;
     int i = 0;
 
-    while (aux != nullptr && i < pos) {
-        aux = aux->getSiguiente();
+    while (actual != nullptr && i < pos) {
+        actual = actual->getSig();
         i++;
     }
 
-    return (aux != nullptr) ? aux->getMaterial() : nullptr;
+    Material* mat = dynamic_cast<Material*>(actual->getInfo());
+    return (mat != nullptr) ? mat : nullptr;
 }
 
-string ListaMateriales::toString() {
-    stringstream s;
-    NodoMaterial* aux = primero;
-    int num = 1;
-
-    while (aux != nullptr) {
-        s << "Material #" << num++ << ":\n";
-        aux->getMaterial()->toString();
-        s << "\n";
-        aux = aux->getSiguiente();
-    }
-
-    if (num == 1) s << "No hay materiales registrados.\n";
-
-    return s.str();
-}
-
-NodoMaterial* ListaMateriales::getPrimero()
-{
+Nodo* ListaMateriales::getPrimero() {
     return primero;
 }
 

@@ -1,20 +1,14 @@
 #pragma once
-#include "NodoUsuario.h"
+#include "Nodo.h"
 #include "Usuario.h"
 #include "ListaBase.h"
 
-class ListaUsuario {
-private:
-	NodoUsuario* primero;
-	NodoUsuario* actual;
+class ListaUsuario : public ListaBase {
 public:
 	ListaUsuario();
-	bool insertarFinal(Usuario*);
-	string toString();
-	bool eliminaFinal();
 	bool encontrado(string);// retorna true si encuentra la cedula en la Lista y false sino
 	Usuario* obtenerUsuario(string); // retorna al Usuario en caso de encontrar la cedula ingresada
-	NodoUsuario* getPrimero();
+	Nodo* getPrimero();
 	void setPrimeroNull();
 	~ListaUsuario();
 };

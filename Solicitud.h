@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Solicitud : ObjetoBase {
+class Solicitud : public ObjetoBase {
 private:
     Usuario* usuario;
     Material* material;

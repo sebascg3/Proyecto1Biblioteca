@@ -38,7 +38,7 @@ void Controlador::incluirMaterial() {
         getline(cin, titulo);
 
         Material* nuevo = new Material(codigo, titulo);
-        materiales->insertarMaterial(nuevo);
+        materiales->insertarFinal(nuevo);
 
         cout << "Material incluido exitosamente.\n";
     }

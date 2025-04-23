@@ -1,17 +1,11 @@
 #pragma once
-#include "NodoSolicitud.h"
+#include "Nodo.h"
 #include "Solicitud.h"
 #include "ListaBase.h"
 
-class ListaSolicitud {
-private:
-	NodoSolicitud* primero;
-	NodoSolicitud* actual;
+class ListaSolicitud : public ListaBase {
 public:
 	ListaSolicitud();
-	bool insertarFinal(Solicitud*);
-	string toString();
-	bool eliminaFinal();
 	Solicitud* obtenerEnPosicion(int);
 	void mostrarPrestamosPorUsuario(string cedula);
 
