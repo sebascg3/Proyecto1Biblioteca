@@ -9,4 +9,9 @@ public:
 	Solicitud* obtenerEnPosicion(int);
 	void mostrarPrestamosPorUsuario(string cedula);
 
+	Nodo* getPrimero();
+	void setPrimeroNull();
+
+	Usuario* buscarUsuarioPorCedula(string);
+	Material* buscarMaterialPorCodigo(string);
 };

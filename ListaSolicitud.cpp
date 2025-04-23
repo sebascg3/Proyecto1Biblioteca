@@ -43,3 +43,52 @@ void ListaSolicitud::mostrarPrestamosPorUsuario(string cedula) {
 	}
 }
 
+Nodo* ListaSolicitud::getPrimero() {
+	return primero;
+}
+
+void ListaSolicitud::setPrimeroNull()
+{
+	primero = NULL;
+}
+
+Usuario* ListaSolicitud::buscarUsuarioPorCedula(string cedula)
+{
+	actual = primero;
+	bool encontrado = false;
+	Usuario* usu = nullptr;
+
+	while (actual != nullptr) {
+
+		Solicitud* soli = dynamic_cast<Solicitud*>(actual->getInfo());
+
+		if (soli->getUsuario()->getCedula() == cedula) {
+			usu = soli->getUsuario();
+			encontrado = true;
+		}
+		actual = actual->getSig();
+	}
+
+	return usu;
+}
+
+Material* ListaSolicitud::buscarMaterialPorCodigo(string codigo)
+{
+	actual = primero;
+	bool encontrado = false;
+	Material* mat = nullptr;
+
+	while (actual != nullptr) {
+
+		Solicitud* soli = dynamic_cast<Solicitud*>(actual->getInfo());
+
+		if (soli->getUsuario()->getCedula() == codigo) {
+			mat = soli->getMaterial();
+			encontrado = true;
+		}
+		actual = actual->getSig();
+	}
+
+	return mat;
+}
+

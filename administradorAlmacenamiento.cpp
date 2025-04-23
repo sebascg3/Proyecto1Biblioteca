@@ -217,4 +217,57 @@ void administradorAlmacenamiento::readListaUsuarios(ListaUsuario* lis, ifstream&
 	}
 }
 
+void administradorAlmacenamiento::readListaPrestamos(ListaSolicitud* lis, ifstream& file)
+{
+	Solicitud* soli = nullptr;
+
+	lis->setPrimeroNull();
+
+	if (file.fail()) {
+		cerr << "No se pudo abrir el archivo" << endl;
+		exit(1);
+	}
+
+	while (!file.eof()) {
+		string cedula = "";
+		file >> cedula;
+		string codigo = "";
+		file >> codigo;
+		string fechaD = "";
+		file >> fechaD;
+		string fechaP = "";
+		file >> fechaP;
+		bool retraso = false;
+		file >> retraso;
+
+		Usuario* usu = lis->buscarUsuarioPorCedula(cedula);
+		Material* mat = lis->buscarMaterialPorCodigo(codigo);
+
+		soli = new Solicitud(usu, mat, fechaP, fechaD, retraso);
+
+		lis->insertarFinal(soli);
+
+	}
+
+	
+
+}
+
+	void administradorAlmacenamiento::saveListaPrestamos(ListaSolicitud * lis, ofstream & file){
+		Nodo* actual = lis->getPrimero();
+
+		while (actual != nullptr) {
+			Solicitud* solicitudTemp = dynamic_cast<Solicitud*>(actual->getInfo());
+
+			file << solicitudTemp->getUsuario()->getCedula() << endl
+				<< solicitudTemp->getMaterial()->getCodigo() << endl
+				<< solicitudTemp->getfechaD() << endl
+				<< solicitudTemp->getfechaP() << endl
+				<< solicitudTemp->getRet() << endl;
+
+			actual = actual->getSig();
+
+		}
+	}
+
 
