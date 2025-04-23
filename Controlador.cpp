@@ -1,7 +1,7 @@
 #include "Controlador.h"
 #include <iostream>
 #include <string>
-#include <cstdlib> // Para system("pause") y system("cls")
+#include <cstdlib>
 
 using namespace std;
 
@@ -27,17 +27,29 @@ void Controlador::incluirMaterial() {
     string codigo, titulo;
     cout << "Ingrese el codigo del material: ";
     cin >> codigo;
-    cout << "Ingrese el titulo del material: ";
-    cin.ignore(); // para limpiar buffer
-    getline(cin, titulo);
 
-    Material* nuevo = new Material(codigo, titulo);
-    materiales->insertarMaterial(nuevo);
+    try {
+        if (materiales->buscarMaterial(codigo) != nullptr) {
+            throw runtime_error("Ya existe un material con ese código.");
+        }
 
-    cout << "Material incluido exitosamente.\n";
+        cout << "Ingrese el titulo del material: ";
+        cin.ignore();
+        getline(cin, titulo);
+
+        Material* nuevo = new Material(codigo, titulo);
+        materiales->insertarMaterial(nuevo);
+
+        cout << "Material incluido exitosamente.\n";
+    }
+    catch (const exception& e) {
+        cout << "Error al incluir material: " << e.what() << endl;
+    }
+
     system("pause");
     system("cls");
 }
+
 
 void Controlador::modificarMaterial() {
     system("cls");
@@ -59,6 +71,7 @@ void Controlador::modificarMaterial() {
     else {
         cout << "Material no encontrado.\n";
     }
+
     system("pause");
     system("cls");
 }
@@ -72,17 +85,28 @@ void Controlador::incluirUsuario() {
     string cedula, nombre;
     cout << "Ingrese la cedula del usuario: ";
     cin >> cedula;
-    cout << "Ingrese el nombre del usuario: ";
-    cin.ignore();
-    getline(cin, nombre);
 
-    Usuario* nuevo = new Usuario(cedula, nombre);
-    usuarios->insertarFinal(nuevo);
+    try {
+        if (usuarios->obtenerUsuario(cedula) != nullptr) {
+            throw runtime_error("Ya existe un usuario con esa cédula.");
+        }
 
-    cout << "Usuario incluido exitosamente.\n";
+        cout << "Ingrese el nombre del usuario: ";
+        cin.ignore();
+        getline(cin, nombre);
+
+        Usuario* nuevo = new Usuario(cedula, nombre);
+        usuarios->insertarFinal(nuevo);
+
+        cout << "Usuario incluido exitosamente.\n";
+    }
+    catch (const exception& e) {
+        cout << "Error al incluir usuario: " << e.what() << endl;
+    }
     system("pause");
     system("cls");
 }
+
 
 void Controlador::modificarUsuario() {
     system("cls");
