@@ -18,7 +18,7 @@ string Revistas::getFormato() const {
 }
 
 void Revistas::mostrarInformacion() const {
-    Material::mostrarInformacion();
+    Material::toString();
     cout << "Numero: " << Numero << endl;
     cout << "Volumen: " << Volumen << endl;
     cout << "Formato: " << Formato << endl;

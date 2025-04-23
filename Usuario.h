@@ -5,7 +5,9 @@
 #include <sstream>
 using namespace std;
 
-class Usuario {
+#include "ObjetoBase.h"
+
+class Usuario : public ObjetoBase{
 private:
     string nombre;
     string cedula;
@@ -22,7 +24,7 @@ public:
 
     void setNombre(string n);
 
-    string mostrarUsuario();
+    virtual string toString() const;
 };
 
 #endif

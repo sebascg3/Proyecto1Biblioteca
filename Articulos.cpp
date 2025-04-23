@@ -10,6 +10,6 @@ string Articulos::getFormato() const {
 }
 
 void Articulos::mostrarInformacion() const {
-    Material::mostrarInformacion();
+    Material::toString();
     cout << "Formato: " << formato << endl;
 }

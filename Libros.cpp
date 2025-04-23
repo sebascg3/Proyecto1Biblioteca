@@ -18,7 +18,7 @@ string Libros::getFormato() const {
 }
 
 void Libros::mostrarInformacion() const {
-    Material::mostrarInformacion();
+    Material::toString();
     cout << "ISBN: " << ISBN << endl;
     cout << "Editorial: " << editorial << endl;
     cout << "Formato: " << formato << endl;

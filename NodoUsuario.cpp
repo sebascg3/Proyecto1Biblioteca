@@ -24,5 +24,5 @@ NodoUsuario* NodoUsuario::getSig() {
 }
 
 string NodoUsuario::toStringInfo() {
-	return info->mostrarUsuario();
+	return info->toString();
 }

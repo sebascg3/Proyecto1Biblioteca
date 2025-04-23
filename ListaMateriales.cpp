@@ -39,7 +39,7 @@ string ListaMateriales::mostrarMaterialesPrestados() {
         Material* mat = aux->getMaterial();
         if (!mat->isDisponible()) {
             s << "Material Prestado #" << cont++ << endl;
-            mat->mostrarInformacion();
+            mat->toString();
             s << "\n";
         }
         aux = aux->getSiguiente();
@@ -73,7 +73,7 @@ string ListaMateriales::toString() {
 
     while (aux != nullptr) {
         s << "Material #" << num++ << ":\n";
-        aux->getMaterial()->mostrarInformacion();
+        aux->getMaterial()->toString();
         s << "\n";
         aux = aux->getSiguiente();
     }

@@ -141,6 +141,7 @@
     <ClInclude Include="NodoMaterial.h" />
     <ClInclude Include="NodoSolicitud.h" />
     <ClInclude Include="NodoUsuario.h" />
+    <ClInclude Include="ObjetoBase.h" />
     <ClInclude Include="Revistas.h" />
     <ClInclude Include="Solicitud.h" />
     <ClInclude Include="Usuario.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="MaterialDigital.cpp" />
     <ClCompile Include="NodoSolicitud.cpp" />
     <ClCompile Include="NodoUsuario.cpp" />
+    <ClCompile Include="ObjetoBase.cpp" />
     <ClCompile Include="Revistas.cpp" />
     <ClCompile Include="Solicitud.cpp" />
     <ClCompile Include="Usuario.cpp" />

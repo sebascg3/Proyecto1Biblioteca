@@ -94,7 +94,7 @@ void ListaSolicitud::mostrarPrestamosPorUsuario(string cedula) {
 	while (actual != nullptr) {
 		Solicitud* solicitud = actual->getInfo();
 		if (solicitud->getUsuario()->getCedula() == cedula) {
-			cout << solicitud->mostrarSoli() << endl;
+			cout << solicitud->toString() << endl;
 			encontrado = true;
 		}
 		actual = actual->getSig();

@@ -18,7 +18,7 @@ string Videos::getTema() const {
 }
 
 void Videos::mostrarInformacion() const {
-    Material::mostrarInformacion();
+    Material::toString();
     cout << "Duracion: " << duracion << endl;
     cout << "Formato: " << formato << endl;
     cout << "Tema: " << tema << endl;

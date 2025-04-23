@@ -2,10 +2,13 @@
 #define MATERIAL_H  
 
 #include <string>  
+#include <sstream>
 #include <iostream>  
-using namespace std;  
+using namespace std; 
 
-class Material {  
+#include "ObjetoBase.h"
+
+class Material : public ObjetoBase {  
 private:  
    string codigo;  
    string titulo;  
@@ -31,7 +34,7 @@ public:
    void setTitulo(string tit);  
    void setDisponible(bool disp);  
 
-   virtual void mostrarInformacion() const; // Cambiado a virtual y const  
+   virtual string toString() const;
 };  
 
 #endif

@@ -48,12 +48,16 @@ void Material::setDisponible(bool disp) {
     disponible = disp;
 }
 
-void Material::mostrarInformacion() const {
-    cout << "Código: " << codigo << endl;
-    cout << "Título: " << titulo << endl;
-    cout << "Disponible: " << (disponible ? "Sí" : "No") << endl;
-    cout << "Numero de catalogo: " << numeroCatalogo << endl;
-    cout << "Autor: " << autor << endl;
-    cout << "Palabra clave: " << palabraClave << endl;
-    cout << "Tipo: " << tipo << endl;
+string Material::toString() const {
+    stringstream s;
+
+    s << "Codigo: " << codigo << endl;
+    s << "Titulo: " << titulo << endl;
+    s << "Disponible: " << (disponible ? "Si" : "No") << endl;
+    s << "Numero de catalogo: " << numeroCatalogo << endl;
+    s << "Autor: " << autor << endl;
+    s << "Palabra clave: " << palabraClave << endl;
+    s << "Tipo: " << tipo << endl;
+
+    return s.str();
 }

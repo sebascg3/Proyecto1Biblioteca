@@ -24,5 +24,5 @@ NodoSolicitud* NodoSolicitud::getSig() {
 }
 
 string NodoSolicitud::toStringInfo() {
-	return info->mostrarSoli();
+	return info->toString();
 }

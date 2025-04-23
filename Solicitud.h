@@ -4,11 +4,12 @@
 #include "Usuario.h"
 #include "Material.h"
 #include "GestorPrestamos.h"
+#include "ObjetoBase.h"
 #include <string>
 
 using namespace std;
 
-class Solicitud {
+class Solicitud : ObjetoBase {
 private:
     Usuario* usuario;
     Material* material;
@@ -26,7 +27,7 @@ public:
     string getfechaD();
     bool getRet();
     void setRet(bool);
-    string mostrarSoli();
+    virtual string toString() const;
 };
 
 #endif

@@ -10,7 +10,7 @@ string MaterialDigital::getFormato() const {
 }
 
 void MaterialDigital::mostrarInformacion() const {
-    Material::mostrarInformacion();
+    Material::toString();
     cout << "Formato: " << formato << endl;
 }
 

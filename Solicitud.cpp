@@ -67,8 +67,7 @@ void Solicitud::setRet(bool ret)
 	gest->setRet(ret);
 }
 
-string Solicitud::mostrarSoli()
-{
+string Solicitud::toString() const {
 	stringstream s;
 	s << "Usuario:" << usuario->getNombre() << endl;
 	s << "Material: " << material->getTitulo() <<";"<<"Nombre: "<<material->getTitulo()<< endl;
