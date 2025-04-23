@@ -1,6 +1,7 @@
 #pragma once
 #include "NodoSolicitud.h"
 #include "Solicitud.h"
+#include "ListaBase.h"
 
 class ListaSolicitud {
 private:

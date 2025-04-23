@@ -1,9 +1,12 @@
 #ifndef LISTAMATERIALES_H
 #define LISTAMATERIALES_H
 
-#include "NodoMaterial.h"
 #include <string>
 #include <sstream>
+
+#include "NodoMaterial.h"
+#include "ListaBase.h"
+
 
 class ListaMateriales {
 private:

@@ -1,6 +1,7 @@
 #pragma once
 #include "NodoUsuario.h"
 #include "Usuario.h"
+#include "ListaBase.h"
 
 class ListaUsuario {
 private:
