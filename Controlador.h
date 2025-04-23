@@ -5,6 +5,7 @@
 #include "ListaUsuario.h"
 #include "ListaMateriales.h"
 #include "administradorAlmacenamiento.h"
+#include "UsuarioDuplicado.h"
 
 class Controlador {
 private:

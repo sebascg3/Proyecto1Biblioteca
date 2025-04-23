@@ -8,8 +8,7 @@ ListaUsuario::ListaUsuario() {
 bool ListaUsuario::insertarFinal(Usuario* u) {
 	bool tof = false;
 
-	Usuario* UsuPtr = new Usuario(u);
-	NodoUsuario* nuevoN = new NodoUsuario(UsuPtr, nullptr);
+	NodoUsuario* nuevoN = new NodoUsuario(u, nullptr);
 
 	actual = primero;
 	if (primero == nullptr) {

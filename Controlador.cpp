@@ -88,7 +88,7 @@ void Controlador::incluirUsuario() {
 
     try {
         if (usuarios->obtenerUsuario(cedula) != nullptr) {
-            throw runtime_error("Ya existe un usuario con esa cedula.");
+            throw UsuarioDuplicadoException(cedula);
         }
 
         cout << "Ingrese el nombre del usuario: ";
@@ -100,12 +100,14 @@ void Controlador::incluirUsuario() {
 
         cout << "Usuario incluido exitosamente.\n";
     }
-    catch (const exception& e) {
-        cout << "Error al incluir usuario: " << e.what() << endl;
+    catch (const UsuarioDuplicadoException& e) {
+        cout << "Error: " << e.what() << endl;
     }
+
     system("pause");
     system("cls");
 }
+
 
 
 void Controlador::modificarUsuario() {
