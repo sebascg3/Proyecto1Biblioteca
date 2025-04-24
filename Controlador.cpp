@@ -24,20 +24,53 @@ void Controlador::incluirMaterial() {
     system("cls");
     cout << "== Incluir nuevo material ==" << endl;
 
-    string codigo, titulo;
-    cout << "Ingrese el codigo del material: ";
-    cin >> codigo;
+    string numeroClasificacion, titulo, autor, palabraClave, tipo;
+    int numeroCatalogo, estadoInt;
+    bool estado;
+
+    cout << "Ingrese el número de clasificación: ";
+    cin >> numeroClasificacion;
 
     try {
-        if (materiales->buscarMaterial(codigo) != nullptr) {
-            throw runtime_error("Ya existe un material con ese codigo.");
+        if (materiales->buscarMaterial(numeroClasificacion) != nullptr) {
+            throw runtime_error("Ya existe un material con ese número de clasificación.");
         }
 
-        cout << "Ingrese el titulo del material: ";
+        cout << "Ingrese el número de catálogo: ";
+        cin >> numeroCatalogo;
         cin.ignore();
+
+        cout << "Ingrese el título del material: ";
         getline(cin, titulo);
 
-        Material* nuevo = new Material(codigo, titulo);
+        cout << "Ingrese el/los autor(es): ";
+        getline(cin, autor);
+
+        cout << "Ingrese la(s) palabra(s) clave: ";
+        getline(cin, palabraClave);
+
+        cout << "Ingrese el tipo de material: ";
+        getline(cin, tipo);
+
+        cout << "Estado del material:\n";
+        cout << "1. Buen estado\n";
+        cout << "2. Regular\n";
+        cout << "3. Mal estado\n";
+        cout << "Seleccione una opción: ";
+        cin >> estadoInt;
+        
+        if (estadoInt == 1 || estadoInt == 2) {
+            estado = true;
+        }
+        else if (estadoInt == 3) {
+            estado = false;
+        }
+        else {
+            cout << "Opción inválida. Se establecerá estado por defecto (buen estado).\n";
+            estado = true;
+        }
+
+        Material* nuevo = new Material(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado);
         materiales->insertarFinal(nuevo);
 
         cout << "Material incluido exitosamente.\n";
@@ -49,6 +82,7 @@ void Controlador::incluirMaterial() {
     system("pause");
     system("cls");
 }
+
 
 
 void Controlador::modificarMaterial() {
