@@ -83,6 +83,9 @@ void Controlador::incluirUsuario() {
     cout << "== Incluir nuevo usuario ==" << endl;
 
     string cedula, nombre;
+    int estadoInt;
+    bool estado;
+
     cout << "Ingrese la cedula del usuario: ";
     cin >> cedula;
 
@@ -91,10 +94,26 @@ void Controlador::incluirUsuario() {
             throw UsuarioDuplicadoException(cedula);
         }
 
+        cin.ignore();
         cout << "Ingrese el nombre del usuario: ";
-        cin >> nombre;
+        getline(cin, nombre);
 
-        Usuario* nuevo = new Usuario(nombre, cedula);
+        cout << "Estado del usuario:\n";
+        cout << "1. Activo\n";
+        cout << "2. Inactivo\n";
+        cout << "Seleccione una opción: ";
+        cin >> estadoInt;
+
+        if (estadoInt == 1)
+            estado = true;
+        else if (estadoInt == 2)
+            estado = false;
+        else {
+            cout << "Opción inválida. Se establecerá estado por defecto (activo).\n";
+            estado = true;
+        }
+
+        Usuario* nuevo = new Usuario(nombre, cedula, estado);
         usuarios->insertarFinal(nuevo);
 
         cout << "Usuario incluido exitosamente.\n";
@@ -106,6 +125,7 @@ void Controlador::incluirUsuario() {
     system("pause");
     system("cls");
 }
+
 
 
 
