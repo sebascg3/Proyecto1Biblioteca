@@ -19,18 +19,20 @@ bool ListaUsuario::encontrado(string ced) {
 	return false;
 }
 
-Usuario* ListaUsuario::obtenerUsuario(string ced) {
-	actual = primero;
+Usuario* ListaUsuario::obtenerUsuario(string ced) {  
+actual = primero;  
 
-	while (actual != nullptr) {
-		if (actual->getInfo()->getCedula() == ced) {
-			return actual->getInfo();
-		}
-		actual = actual->getSig();
-	}
+while (actual != nullptr) {  
+	Usuario* usuarioActual = dynamic_cast<Usuario*>(actual->getInfo());  
+	if (usuarioActual != nullptr && usuarioActual->getCedula() == ced) {  
+		return usuarioActual;  
+	}  
+	actual = actual->getSig();  
+}  
 
-	return nullptr;
+return nullptr;  
 }
+
 
 Nodo* ListaUsuario::getPrimero() {
 	return primero;
