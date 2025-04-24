@@ -92,10 +92,9 @@ void Controlador::incluirUsuario() {
         }
 
         cout << "Ingrese el nombre del usuario: ";
-        cin.ignore();
-        getline(cin, nombre);
+        cin >> nombre;
 
-        Usuario* nuevo = new Usuario(cedula, nombre);
+        Usuario* nuevo = new Usuario(nombre, cedula);
         usuarios->insertarFinal(nuevo);
 
         cout << "Usuario incluido exitosamente.\n";

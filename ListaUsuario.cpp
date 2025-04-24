@@ -23,9 +23,8 @@ Usuario* ListaUsuario::obtenerUsuario(string ced) {
 	actual = primero;
 
 	while (actual != nullptr) {
-		Usuario* usu = dynamic_cast<Usuario*>(actual->getInfo());
-		if (usu != nullptr && usu->getCedula() == ced) {
-			return usu;
+		if (actual->getInfo()->getCedula() == ced) {
+			return actual->getInfo();
 		}
 		actual = actual->getSig();
 	}
