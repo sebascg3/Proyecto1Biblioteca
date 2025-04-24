@@ -13,6 +13,8 @@ InterfazUsuario::~InterfazUsuario() {
 
 void InterfazUsuario::mostrarMenuPrincipal() {
     int opcion;
+
+
     do {
         system("cls");
         cout << "===== SISTEMA DE BIBLIOTECA =====\n";
@@ -110,7 +112,8 @@ void InterfazUsuario::menuPrestamos() {
         cout << "--- PRESTAMOS Y DEVOLUCIONES ---\n";
         cout << "1. Registrar prestamo\n";
         cout << "2. Registrar devolucion\n";
-        cout << "3. Volver al menu principal\n";
+        cout << "3. Actualizar prestamos\n";
+        cout << "4. Volver al menu principal\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -122,6 +125,9 @@ void InterfazUsuario::menuPrestamos() {
             controlador->registrarDevolucion();
             break;
         case 3:
+            controlador->actualizarPrestamo();
+            break;
+        case 4:
             return;
         default:
             cout << "Opcion invalida.\n";

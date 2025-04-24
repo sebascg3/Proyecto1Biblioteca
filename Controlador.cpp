@@ -243,7 +243,94 @@ void Controlador::registrarPrestamo() {
     Material* material = materiales->buscarMaterial(codigo);
 
     if (usuario && material && material->esDisponible()) {
-        Solicitud* prestamo = new Solicitud(usuario, material, "prestamo");
+
+        Fecha* fecha = NULL;
+        Fecha* fechaD = NULL;
+
+        while (fecha == NULL) {
+            try {
+                cout << "Porfavor digite la fecha a usar para los prestamos" << endl;
+                cout << "Digite el dia:" << endl;
+                int dia;
+                cin >> dia;
+                if (dia > 31)throw string("Porfavor digite un numero menor a 31");
+
+                cout << "Digite el mes:" << endl;
+                int mes;
+                cin >> mes;
+                if (mes > 12)throw string("Porfavor digite un numero menor a 12");
+
+                cout << "Digite el anno:" << endl;
+                int anno;
+                cin >> anno;
+
+                fecha = new Fecha(dia, mes, anno);
+            }
+            catch (string x) { cout << "Ha ocurrido un error: " << x << endl; }
+        }
+
+        if (material->getTipo() == "libro") {
+
+            int diaD = fecha->getDia() + 7;
+
+            int mesD = fecha->getMes();
+            if (diaD > 31) { mesD++; diaD = diaD - 31; }
+
+            int annoD = fecha->getAnno();
+
+            fechaD = new Fecha(diaD, mesD, annoD);
+        }
+
+        if (material->getTipo() == "revista") {
+
+            int diaD = fecha->getDia() + 2;
+
+            int mesD = fecha->getMes();
+            if (diaD > 31) { mesD++; diaD = diaD - 31; }
+
+            int annoD = fecha->getAnno();
+
+            fechaD = new Fecha(diaD, mesD, annoD);
+        }
+
+        if (material->getTipo() == "articulo") {
+
+            int diaD = fecha->getDia() + 3;
+
+            int mesD = fecha->getMes();
+            if (diaD > 31) { mesD++; diaD = diaD - 31; }
+
+            int annoD = fecha->getAnno();
+
+            fechaD = new Fecha(diaD, mesD, annoD);
+        }
+
+        if (material->getTipo() == "video") {
+
+            int diaD = fecha->getDia() + 5;
+
+            int mesD = fecha->getMes();
+            if (diaD > 31) { mesD++; diaD = diaD - 31; }
+
+            int annoD = fecha->getAnno();
+
+            fechaD = new Fecha(diaD, mesD, annoD);
+        }
+
+        if (material->getTipo() == "materialDigital") {
+
+            int diaD = fecha->getDia();
+
+            int mesD = fecha->getMes();
+            if (diaD > 31) { mesD++; diaD = diaD - 31; }
+
+            int annoD = fecha->getAnno();
+
+            fechaD = new Fecha(diaD, mesD, annoD);
+        }
+
+        Solicitud* prestamo = new Solicitud(usuario, material, fecha, fechaD, false);
+
         solicitudes->insertarFinal(prestamo);
         material->setDisponible(false); 
         cout << "Prestamo registrado correctamente.\n";
@@ -274,6 +361,38 @@ void Controlador::registrarDevolucion() {
     }
     system("pause");
     system("cls");
+}
+
+void Controlador::actualizarPrestamo() {
+    system("cls");
+
+    Fecha* fecha = NULL;
+
+    while (fecha == NULL) {
+        try {
+            cout << "Porfavor digite la fecha a usar para actualizar" << endl;
+            cout << "Digite el dia:" << endl;
+            int dia;
+            cin >> dia;
+            if (dia > 31)throw string("Porfavor digite un numero menor a 31");
+
+            cout << "Digite el mes:" << endl;
+            int mes;
+            cin >> mes;
+            if (mes > 12)throw string("Porfavor digite un numero menor a 12");
+
+            cout << "Digite el anno:" << endl;
+            int anno;
+            cin >> anno;
+
+            fecha = new Fecha(dia, mes, anno);
+        }
+        catch (string x) { cout << "Ha ocurrido un error: " << x << endl; }
+    }
+
+    solicitudes->actualizarPrestamos(fecha);
+
+    cout << "== prestamos actualizados ==" << endl;
 }
 
 // === REPORTES ===

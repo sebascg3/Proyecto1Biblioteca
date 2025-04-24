@@ -1,24 +1,24 @@
 #include "GestorPrestamos.h"
 
-GestorPrestamos::GestorPrestamos(string fP, string fD, bool ret)
+GestorPrestamos::GestorPrestamos(Fecha* fP, Fecha* fD, bool ret)
 	: fPrestamo(fP), fDevolucion(fD), retrasado(ret) {
 }
 
-string GestorPrestamos::getfechaP()
+Fecha* GestorPrestamos::getfechaP()
 {
 	return fPrestamo;
 }
 
-string GestorPrestamos::getfechaD()
+Fecha* GestorPrestamos::getfechaD()
 {
 	return fDevolucion;
 }
 
-void GestorPrestamos::setFechaP(string fechUs) {
+void GestorPrestamos::setFechaP(Fecha* fechUs) {
 	fPrestamo = fechUs;
 }
 
-void GestorPrestamos::setFechaD(string fechUs2) {
+void GestorPrestamos::setFechaD(Fecha* fechUs2) {
 	fDevolucion = fechUs2;
 }
 

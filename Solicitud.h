@@ -17,8 +17,8 @@ private:
 
 public:
     Solicitud(Usuario*, Material*, string);
-    Solicitud(Usuario*, Material*, string, string, bool);
-    Solicitud(Solicitud*);
+    Solicitud(Usuario*, Material*, Fecha*, Fecha*, bool);
+    /*Solicitud(Solicitud*);*/
     Solicitud();
     ~Solicitud();
     Usuario* getUsuario();
@@ -28,6 +28,7 @@ public:
     bool getRet();
     void setRet(bool);
     virtual string toString() const;
+    GestorPrestamos* getGestor();
 };
 
 #endif

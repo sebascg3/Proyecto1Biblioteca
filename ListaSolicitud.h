@@ -14,4 +14,5 @@ public:
 
 	Usuario* buscarUsuarioPorCedula(string);
 	Material* buscarMaterialPorCodigo(string);
+	void actualizarPrestamos(Fecha*);
 };

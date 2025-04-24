@@ -33,19 +33,19 @@ string Material::getTitulo() {
 }
 
 string Material::getTipo() {
-    return titulo;
+    return tipo;
 }
 
-string Material::getNumeroCatalogo() {
-    return titulo;
+int Material::getNumeroCatalogo() {
+    return numeroCatalogo;
 }
 
 string Material::getAutor() {
-    return titulo;
+    return autor;
 }
 
 string Material::getPalabraClave() {
-    return titulo;
+    return palabraClave;
 }
 
 void Material::setTitulo(string tit){

@@ -26,7 +26,7 @@ public:
    string getCodigo();  
    string getTitulo();  
    bool esDisponible() const;
-   string getNumeroCatalogo();
+   int getNumeroCatalogo();
    string getTipo();
    string getAutor();
    string getPalabraClave();

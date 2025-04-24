@@ -233,15 +233,29 @@ void administradorAlmacenamiento::readListaPrestamos(ListaSolicitud* lis, ifstre
 		file >> cedula;
 		string codigo = "";
 		file >> codigo;
-		string fechaD = "";
-		file >> fechaD;
-		string fechaP = "";
-		file >> fechaP;
+
+		int fechaDDia = -1;
+		int fechaDMes = -1;
+		int fechaDAnno = -1;
+		file >> fechaDDia;
+		file >> fechaDMes;
+		file >> fechaDAnno;
+
+		int fechaPDia = -1;
+		int fechaPMes = -1;
+		int fechaPAnno = -1;
+		file >> fechaPDia;
+		file >> fechaPMes;
+		file >> fechaPAnno;
+
 		bool retraso = false;
 		file >> retraso;
 
 		Usuario* usu = lis->buscarUsuarioPorCedula(cedula);
 		Material* mat = lis->buscarMaterialPorCodigo(codigo);
+
+		Fecha* fechaP = new Fecha(fechaPDia, fechaPMes, fechaPAnno);
+		Fecha* fechaD = new Fecha(fechaDDia, fechaDMes, fechaDAnno);
 
 		soli = new Solicitud(usu, mat, fechaP, fechaD, retraso);
 
@@ -261,8 +275,15 @@ void administradorAlmacenamiento::readListaPrestamos(ListaSolicitud* lis, ifstre
 
 			file << solicitudTemp->getUsuario()->getCedula() << endl
 				<< solicitudTemp->getMaterial()->getCodigo() << endl
-				<< solicitudTemp->getfechaD() << endl
-				<< solicitudTemp->getfechaP() << endl
+
+				<< solicitudTemp->getGestor()->getfechaD()->getDia()<< endl
+				<< solicitudTemp->getGestor()->getfechaD()->getMes() << endl
+				<< solicitudTemp->getGestor()->getfechaD()->getAnno() << endl
+
+				<< solicitudTemp->getGestor()->getfechaP()->getDia() << endl
+				<< solicitudTemp->getGestor()->getfechaP()->getMes() << endl
+				<< solicitudTemp->getGestor()->getfechaP()->getAnno() << endl
+
 				<< solicitudTemp->getRet() << endl;
 
 			actual = actual->getSig();

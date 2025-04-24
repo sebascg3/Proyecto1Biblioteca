@@ -130,6 +130,7 @@
     <ClInclude Include="administradorAlmacenamiento.h" />
     <ClInclude Include="Articulos.h" />
     <ClInclude Include="Controlador.h" />
+    <ClInclude Include="Fecha.h" />
     <ClInclude Include="GestorPrestamos.h" />
     <ClInclude Include="InterfazUsuario.h" />
     <ClInclude Include="Libros.h" />
@@ -150,6 +151,7 @@
     <ClCompile Include="administradorAlmacenamiento.cpp" />
     <ClCompile Include="Articulos.cpp" />
     <ClCompile Include="Controlador.cpp" />
+    <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="UsuarioDuplicado.h" />
     <ClCompile Include="GestorPrestamos.cpp" />
     <ClCompile Include="InterfazUsuario.cpp" />

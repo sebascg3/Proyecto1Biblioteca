@@ -5,29 +5,29 @@
 Solicitud::Solicitud(Usuario* u, Material* m, string tipo)
 	: usuario(u), material(m), gest(nullptr) {
 	if (tipo == "prestamo") {
-		gest = new GestorPrestamos("fechaPrestamo", "fechaDevolucion", false);
+		gest = new GestorPrestamos(NULL, NULL, false);
 	}
 }
 
 
-Solicitud::Solicitud(Usuario* us, Material* mat, string fP, string fD, bool ret)
+Solicitud::Solicitud(Usuario* us, Material* mat, Fecha* fP, Fecha* fD, bool ret)
 {
 	usuario = us;
 	material = mat;
 	gest = new GestorPrestamos(fP, fD, ret);
 }
 
-Solicitud::Solicitud(Solicitud* s) {
-	usuario = s->usuario;
-	material = s->material;
-	gest = new GestorPrestamos(s->getfechaP(), s->getfechaD(), s->getRet());
-}
+//Solicitud::Solicitud(Solicitud* s) {
+//	usuario = s->usuario;
+//	material = s->material;
+//	gest = new GestorPrestamos(s->getfechaD(), s->getfechaP(), s->getRet());
+//}
 
 Solicitud::Solicitud()
 {
 	usuario = nullptr;
 	material = nullptr;
-	gest = new GestorPrestamos(" ", " ", false);
+	gest = new GestorPrestamos(NULL, NULL, false);
 }
 
 Solicitud::~Solicitud()
@@ -49,12 +49,12 @@ Material* Solicitud::getMaterial()
 
 string Solicitud::getfechaP()
 {
-	return gest->getfechaP();
+	return gest->getfechaP()->toString();
 }
 
 string Solicitud::getfechaD()
 {
-	return gest->getfechaD();
+	return gest->getfechaD()->toString();
 }
 
 bool Solicitud::getRet()
@@ -78,4 +78,9 @@ string Solicitud::toString() const {
 	}
 	s << "/////////////////////////////////////////////" << endl;
 	return s.str();
+}
+
+GestorPrestamos* Solicitud::getGestor()
+{
+	return gest;
 }

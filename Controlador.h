@@ -28,6 +28,7 @@ public:
     void reporteUsuarios();
     void reporteMaterialesPrestados();
     void reportePrestamosPorUsuario();
+    void actualizarPrestamo();
 
     void saveMateriales(ListaMateriales* lis, ofstream& file);
     void saveUsuarios(ListaUsuario* lis, ofstream& file);

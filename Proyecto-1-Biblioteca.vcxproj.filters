@@ -69,6 +69,9 @@
     <ClInclude Include="ListaBase.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Fecha.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Material.cpp">
@@ -130,6 +133,9 @@
     </ClCompile>
     <ClCompile Include="UsuarioDuplicado.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="Fecha.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -92,3 +92,16 @@ Material* ListaSolicitud::buscarMaterialPorCodigo(string codigo)
 	return mat;
 }
 
+void ListaSolicitud::actualizarPrestamos(Fecha* fech) {
+	actual = primero;
+	while (actual != NULL) {
+		Solicitud* soli = dynamic_cast<Solicitud*>(actual->getInfo());
+
+		if (soli->getGestor()->getfechaD()->getDia() > fech->getDia() && soli->getGestor()->getfechaD()->getMes() >= fech->getMes()) { soli->setRet(true); }
+
+		if (soli->getGestor()->getfechaD()->getAnno() > fech->getAnno()) { soli->setRet(true); }
+
+		actual = actual->getSig();
+	}
+}
+
