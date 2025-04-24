@@ -25,14 +25,20 @@ public:
 
    string getCodigo();  
    string getTitulo();  
-   bool isDisponible();
+   bool esDisponible() const;
    string getNumeroCatalogo();
    string getTipo();
    string getAutor();
    string getPalabraClave();
 
-   void setTitulo(string tit);  
-   void setDisponible(bool disp);  
+   void setTitulo(string tit);
+   void setDisponible(bool disp);
+   void setCodigo(string cod);
+   void setNumeroCatalogo(int numCat);
+   void setAutor(string aut);
+   void setPalabraClave(string palabra);
+   void setTipo(string t);
+
 
    virtual string toString() const;
 };  

@@ -91,16 +91,54 @@ void Controlador::modificarMaterial() {
     cout << "== Modificar material ==" << endl;
 
     string codigo;
-    cout << "Ingrese el codigo del material a modificar: ";
+    cout << "Ingrese el numero de clasificacion del material a modificar: ";
     cin >> codigo;
 
     Material* encontrado = materiales->buscarMaterial(codigo);
     if (encontrado != nullptr) {
-        string nuevoTitulo;
+        int nuevoCatalogo, estadoInt;
+        string nuevoTitulo, nuevoAutor, nuevaPalabraClave, nuevoTipo;
+        bool nuevoEstado;
+
+        cin.ignore(); // Limpiar buffer
+
         cout << "Ingrese el nuevo titulo: ";
-        cin.ignore();
         getline(cin, nuevoTitulo);
+
+        cout << "Ingrese el nuevo autor o autores: ";
+        getline(cin, nuevoAutor);
+
+        cout << "Ingrese la(s) nueva(s) palabra(s) clave: ";
+        getline(cin, nuevaPalabraClave);
+
+        cout << "Ingrese el nuevo tipo de material: ";
+        getline(cin, nuevoTipo);
+
+        cout << "Ingrese el nuevo numero de catalogo: ";
+        cin >> nuevoCatalogo;
+
+        cout << "Nuevo estado del material:\n";
+        cout << "1. Buen estado\n";
+        cout << "2. Regular\n";
+        cout << "3. Mal estado\n";
+        cout << "Seleccione una opcion: ";
+        cin >> estadoInt;
+
+        if (estadoInt == 1 || estadoInt == 2) {
+            nuevoEstado = true;
+        }
+        else {
+            nuevoEstado = false;
+        }
+
+        // Asignar nuevos valores
         encontrado->setTitulo(nuevoTitulo);
+        encontrado->setAutor(nuevoAutor);
+        encontrado->setPalabraClave(nuevaPalabraClave);
+        encontrado->setTipo(nuevoTipo);
+        encontrado->setNumeroCatalogo(nuevoCatalogo);
+        encontrado->setDisponible(nuevoEstado);
+
         cout << "Material modificado correctamente.\n";
     }
     else {
@@ -110,6 +148,7 @@ void Controlador::modificarMaterial() {
     system("pause");
     system("cls");
 }
+
 
 // === USUARIOS ===
 
@@ -203,10 +242,10 @@ void Controlador::registrarPrestamo() {
     Usuario* usuario = usuarios->obtenerUsuario(cedula);
     Material* material = materiales->buscarMaterial(codigo);
 
-    if (usuario && material && material->isDisponible()) {
+    if (usuario && material && material->esDisponible()) {
         Solicitud* prestamo = new Solicitud(usuario, material, "prestamo");
         solicitudes->insertarFinal(prestamo);
-        material->setDisponible(false); // marcar como prestado
+        material->setDisponible(false); 
         cout << "Prestamo registrado correctamente.\n";
     }
     else {
@@ -226,7 +265,7 @@ void Controlador::registrarDevolucion() {
 
     Material* material = materiales->buscarMaterial(codigo);
 
-    if (material && !material->isDisponible()) {
+    if (material && !material->esDisponible()) {
         material->setDisponible(true);
         cout << "Material devuelto correctamente.\n";
     }

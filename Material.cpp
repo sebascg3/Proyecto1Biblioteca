@@ -1,19 +1,31 @@
 #include "Material.h"  
 
 Material::Material(string numeroClasificacion, int numeroCatalogo_, string titulo, string autor_, string palabraClave_, string tipo_, bool estado)
-    : codigo(numeroClasificacion), titulo(titulo), disponible(estado) {
-
-    numeroCatalogo = numeroCatalogo_;
-    autor = autor_;
-    palabraClave = palabraClave_;
-
+    : codigo(numeroClasificacion), titulo(titulo), disponible(estado), numeroCatalogo(numeroCatalogo_), autor(autor_), palabraClave(palabraClave_), tipo(tipo_) {
 }
 
-Material::Material(string codigo, string titulo):
-    codigo(codigo), titulo(titulo), disponible(true){ }
+Material::Material(string codigo, string titulo)
+    : codigo(codigo), titulo(titulo), disponible(true), numeroCatalogo(0), autor(""), palabraClave(""), tipo("") {
+}
 
+void Material::setCodigo(string cod) {  
+   codigo = cod;  
+}
+
+void Material::setNumeroCatalogo(int numCat){
+    numeroCatalogo = numCat;
+}
+void Material::setAutor(string aut) {
+	autor = aut;
+}
+void Material::setPalabraClave(string palabra) {
+	palabraClave = palabra;
+}
+void Material::setTipo(string t) {
+	tipo = t;
+}
 string Material::getCodigo() {
-    return codigo;
+	return codigo;
 }
 
 string Material::getTitulo() {
@@ -36,17 +48,18 @@ string Material::getPalabraClave() {
     return titulo;
 }
 
-bool Material::isDisponible() {
-    return disponible;
-}
-
-void Material::setTitulo(string tit) {
+void Material::setTitulo(string tit){
     titulo = tit;
 }
 
-void Material::setDisponible(bool disp) {
+void Material::setDisponible(bool disp){
     disponible = disp;
 }
+
+bool Material::esDisponible() const {
+    return disponible;
+}
+
 
 string Material::toString() const {
     stringstream s;

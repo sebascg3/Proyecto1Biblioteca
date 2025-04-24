@@ -33,7 +33,7 @@ string ListaMateriales::mostrarMaterialesPrestados() {
 
     while (actual != nullptr) {
         Material* mat = dynamic_cast<Material*>(actual->getInfo());
-        if (!mat->isDisponible()) {
+        if (!mat->esDisponible()) {
             s << "Material Prestado #" << cont++ << endl;
             mat->toString();
             s << "\n";
