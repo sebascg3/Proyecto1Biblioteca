@@ -28,22 +28,22 @@ void Controlador::incluirMaterial() {
     int numeroCatalogo, estadoInt;
     bool estado;
 
-    cout << "Ingrese el número de clasificación: ";
+    cout << "Ingrese el numero de clasificacion: ";
     cin >> numeroClasificacion;
 
     try {
         if (materiales->buscarMaterial(numeroClasificacion) != nullptr) {
-            throw runtime_error("Ya existe un material con ese número de clasificación.");
+            throw runtime_error("Ya existe un material con ese numero de clasificacion.");
         }
 
-        cout << "Ingrese el número de catálogo: ";
+        cout << "Ingrese el numero de catalogo: ";
         cin >> numeroCatalogo;
         cin.ignore();
 
-        cout << "Ingrese el título del material: ";
+        cout << "Ingrese el titulo del material: ";
         getline(cin, titulo);
 
-        cout << "Ingrese el/los autor(es): ";
+        cout << "Ingrese el/los autores: ";
         getline(cin, autor);
 
         cout << "Ingrese la(s) palabra(s) clave: ";
@@ -56,9 +56,9 @@ void Controlador::incluirMaterial() {
         cout << "1. Buen estado\n";
         cout << "2. Regular\n";
         cout << "3. Mal estado\n";
-        cout << "Seleccione una opción: ";
+        cout << "Seleccione una opcion: ";
         cin >> estadoInt;
-        
+
         if (estadoInt == 1 || estadoInt == 2) {
             estado = true;
         }
@@ -66,7 +66,7 @@ void Controlador::incluirMaterial() {
             estado = false;
         }
         else {
-            cout << "Opción inválida. Se establecerá estado por defecto (buen estado).\n";
+            cout << "Opcion invalida. Se establecera estado por defecto (buen estado).\n";
             estado = true;
         }
 
@@ -82,6 +82,7 @@ void Controlador::incluirMaterial() {
     system("pause");
     system("cls");
 }
+
 
 
 
