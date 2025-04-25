@@ -24,10 +24,7 @@ void Controlador::incluirMaterial() {
     system("cls");
     cout << "== Incluir nuevo material ==" << endl;
 
-    string numeroClasificacion, titulo, autor, palabraClave, tipo;
-    int numeroCatalogo, estadoInt;
-    bool estado;
-
+    string numeroClasificacion;
     cout << "Ingrese el numero de clasificacion: ";
     cin >> numeroClasificacion;
 
@@ -36,14 +33,16 @@ void Controlador::incluirMaterial() {
             throw runtime_error("Ya existe un material con ese numero de clasificacion.");
         }
 
-        cout << "Ingrese el numero de catalogo: ";
-        cin >> numeroCatalogo;
+        int numeroCatalogo, estadoInt, opcion;
+        string titulo, autor, palabraClave, tipo, formato;
+        bool estado;
+
         cin.ignore();
 
-        cout << "Ingrese el titulo del material: ";
+        cout << "Ingrese el titulo: ";
         getline(cin, titulo);
 
-        cout << "Ingrese el/los autores: ";
+        cout << "Ingrese el autor o autores: ";
         getline(cin, autor);
 
         cout << "Ingrese la(s) palabra(s) clave: ";
@@ -52,27 +51,70 @@ void Controlador::incluirMaterial() {
         cout << "Ingrese el tipo de material: ";
         getline(cin, tipo);
 
-        cout << "Estado del material:\n";
-        cout << "1. Buen estado\n";
-        cout << "2. Regular\n";
-        cout << "3. Mal estado\n";
-        cout << "Seleccione una opcion: ";
+        cout << "Ingrese el numero de catalogo: ";
+        cin >> numeroCatalogo;
+
+        cout << "Estado del material:\n1. Buen estado\n2. Regular\n3. Mal estado\nSeleccione una opcion: ";
         cin >> estadoInt;
+        estado = (estadoInt == 1 || estadoInt == 2);
 
-        if (estadoInt == 1 || estadoInt == 2) {
-            estado = true;
+        cin.ignore(); // limpiar buffer
+        cout << "Ingrese el formato: ";
+        getline(cin, formato);
+
+        cout << "\nSeleccione el tipo especifico del material:\n";
+        cout << "1. Revista\n2. Libro\n3. Material digital\n4. Video\n5. Articulo\n";
+        cout << "Opcion: ";
+        cin >> opcion;
+
+        Material* nuevo = nullptr;
+
+        switch (opcion) {
+        case 1: { // Revista
+            int numero, volumen;
+            cout << "Ingrese el numero: ";
+            cin >> numero;
+            cout << "Ingrese el volumen: ";
+            cin >> volumen;
+            nuevo = new Revistas(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado, numero, volumen, formato);
+            break;
         }
-        else if (estadoInt == 3) {
-            estado = false;
+        case 2: { // Libro
+            string ISBN, editorial;
+            cin.ignore();
+            cout << "Ingrese el ISBN: ";
+            getline(cin, ISBN);
+            cout << "Ingrese la editorial: ";
+            getline(cin, editorial);
+            nuevo = new Libros(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado, ISBN, editorial, formato);
+            break;
         }
-        else {
-            cout << "Opcion invalida. Se establecera estado por defecto (buen estado).\n";
-            estado = true;
+        case 3: { // Material Digital
+            nuevo = new MaterialDigital(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado, formato);
+            break;
+        }
+        case 4: { // Video
+            string duracion, tema;
+            cin.ignore();
+            cout << "Ingrese la duracion: ";
+            getline(cin, duracion);
+            cout << "Ingrese el tema: ";
+            getline(cin, tema);
+            nuevo = new Videos(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado, duracion, formato, tema);
+            break;
+        }
+        case 5: { // Articulo
+            nuevo = new Articulos(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado, formato);
+            break;
+        }
+        default:
+            cout << "Opcion invalida.\n";
+            system("pause");
+            system("cls");
+            return;
         }
 
-        Material* nuevo = new Material(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado);
         materiales->insertarFinal(nuevo);
-
         cout << "Material incluido exitosamente.\n";
     }
     catch (const exception& e) {
