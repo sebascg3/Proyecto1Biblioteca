@@ -48,9 +48,6 @@ void Controlador::incluirMaterial() {
         cout << "Ingrese la(s) palabra(s) clave: ";
         getline(cin, palabraClave);
 
-        cout << "Ingrese el tipo de material: ";
-        getline(cin, tipo);
-
         cout << "Ingrese el numero de catalogo: ";
         cin >> numeroCatalogo;
 
@@ -76,6 +73,7 @@ void Controlador::incluirMaterial() {
             cin >> numero;
             cout << "Ingrese el volumen: ";
             cin >> volumen;
+            tipo = "revista";
             nuevo = new Revistas(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado, numero, volumen, formato);
             break;
         }
@@ -86,10 +84,12 @@ void Controlador::incluirMaterial() {
             getline(cin, ISBN);
             cout << "Ingrese la editorial: ";
             getline(cin, editorial);
+            tipo = "libro";
             nuevo = new Libros(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado, ISBN, editorial, formato);
             break;
         }
         case 3: { // Material Digital
+            tipo = "materialDigital";
             nuevo = new MaterialDigital(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado, formato);
             break;
         }
@@ -100,10 +100,12 @@ void Controlador::incluirMaterial() {
             getline(cin, duracion);
             cout << "Ingrese el tema: ";
             getline(cin, tema);
+            tipo = "video";
             nuevo = new Videos(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado, duracion, formato, tema);
             break;
         }
         case 5: { // Articulo
+            tipo = "articulo";
             nuevo = new Articulos(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, tipo, estado, formato);
             break;
         }
