@@ -101,6 +101,8 @@ void ListaSolicitud::actualizarPrestamos(Fecha* fech) {
 
 		if (soli->getGestor()->getfechaD()->getAnno() > fech->getAnno()) { soli->setRet(true); }
 
+		if (soli->getMaterial()->getTipo()=="MaterialDigital") { soli->setRet(false); }
+
 		actual = actual->getSig();
 	}
 }

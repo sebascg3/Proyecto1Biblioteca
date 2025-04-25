@@ -231,6 +231,10 @@ void Controlador::modificarUsuario() {
 
 void Controlador::registrarPrestamo() {
     system("cls");
+
+    try {
+        if (materiales->cuentaNodos() == 0 || usuarios->cuentaNodos() == 0) { throw string("La lista de materiales o usuarios esta vacia, porfavor inserte usuarios/materiales antes de crear prestamos."); }
+
     cout << "== Registrar prestamo ==" << endl;
 
     string cedula, codigo;
@@ -338,6 +342,8 @@ void Controlador::registrarPrestamo() {
     else {
         cout << "No se pudo registrar el prestamo. Verifique cedula, codigo o disponibilidad.\n";
     }
+    }
+    catch (string x) { cout << "Error: " << x << endl; }
     system("pause");
     system("cls");
 }
@@ -391,6 +397,8 @@ void Controlador::actualizarPrestamo() {
     }
 
     solicitudes->actualizarPrestamos(fecha);
+
+
 
     cout << "== prestamos actualizados ==" << endl;
 }
