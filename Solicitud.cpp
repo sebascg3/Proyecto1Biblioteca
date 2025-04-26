@@ -71,8 +71,8 @@ string Solicitud::toString() const {
 	stringstream s;
 	s << "Usuario:" << usuario->getNombre() << endl;
 	s << "Material: " << material->getTitulo() <<";"<<"Nombre: "<<material->getTitulo()<< endl;
-	s << "Fecha de prestamo:" << gest->getfechaP() << endl;
-	s << "Fecha devolucion:" << gest->getfechaD() << endl;
+	s << "Fecha de prestamo:" << gest->getfechaP()->toString() << endl;
+	s << "Fecha devolucion:" << gest->getfechaD()->toString() << endl;
 	if (gest->getRet() == true) {
 		s << "Entrega retrasada" << endl;
 	}
