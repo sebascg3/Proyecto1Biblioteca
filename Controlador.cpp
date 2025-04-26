@@ -219,7 +219,7 @@ void Controlador::incluirUsuario() {
         cout << "Estado del usuario:\n";
         cout << "1. Activo\n";
         cout << "2. Inactivo\n";
-        cout << "Seleccione una opción: ";
+        cout << "Seleccione una opcion: ";
         cin >> estadoInt;
 
         if (estadoInt == 1)
@@ -284,7 +284,7 @@ void Controlador::registrarPrestamo() {
     string cedula, codigo;
     cout << "Ingrese cedula del usuario: ";
     cin >> cedula;
-    cout << "Ingrese codigo del material: ";
+    cout << "Ingrese el numero de clasificacion del material: ";
     cin >> codigo;
 
     Usuario* usuario = usuarios->obtenerUsuario(cedula);
