@@ -452,7 +452,7 @@ void Controlador::actualizarPrestamo() {
 void Controlador::reporteInventario() {
     system("cls");
     cout << "== Reporte de inventario de materiales ==\n";
-    materiales->toString();
+    cout << materiales->toString();
     system("pause");
     system("cls");
 }
@@ -460,7 +460,7 @@ void Controlador::reporteInventario() {
 void Controlador::reporteUsuarios() {
     system("cls");
     cout << "== Reporte de usuarios ==\n";
-    usuarios->toString();
+    cout << usuarios->toString();
     system("pause");
     system("cls");
 }
@@ -468,7 +468,7 @@ void Controlador::reporteUsuarios() {
 void Controlador::reporteMaterialesPrestados() {
     system("cls");
     cout << "== Reporte de materiales en prestamo ==\n";
-    materiales->mostrarMaterialesPrestados();
+    cout << materiales->mostrarMaterialesPrestados();
     system("pause");
     system("cls");
 }
