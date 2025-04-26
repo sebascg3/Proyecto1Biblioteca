@@ -24,5 +24,6 @@ Nodo* Nodo::getSig() {
 }
 
 string Nodo::toString() {
+	
 	return info->toString();
 }

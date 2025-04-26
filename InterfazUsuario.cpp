@@ -22,6 +22,7 @@ void InterfazUsuario::mostrarMenuPrincipal() {
         cout << "2. Gestionar usuarios\n";
         cout << "3. Registrar prestamo/devolucion\n";
         cout << "4. Reportes\n";
+        cout << "5. Guardar/Cargar\n";
         cout << "0. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion;
@@ -39,6 +40,11 @@ void InterfazUsuario::mostrarMenuPrincipal() {
         case 4:
             menuReportes();
             system("pause"); 
+            system("cls");
+            break;
+        case 5:
+            menuSaveRead();
+            system("pause");
             system("cls");
             break;
         case 0:
@@ -168,5 +174,50 @@ void InterfazUsuario::menuReportes() {
             cout << "Opcion invalida.\n";
             system("pause");
         }
+    } while (opcion != 5);
+}
+
+void InterfazUsuario::menuSaveRead()
+{
+    int opcion;
+    do {
+        system("cls");
+        cout << "--- REPORTES ---\n";
+        cout << "1. Guardar usuarios\n";
+        cout << "2. Guardar materiales\n";
+        cout << "3. Guardar prestamos\n";
+        cout << endl;
+        cout << "4. Cargar usuarios\n";
+        cout << "5. Cargar materiales\n";
+        cout << "6. Cargar prestamos\n";
+        cout << "7. Volver al menu principal\n";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            controlador->saveUsuarios();
+            break;
+        case 2:
+            controlador->saveMateriales();
+            break;
+        case 3:
+            controlador->savePrestamos();
+            break;
+        case 4:
+            controlador->readUsuarios();
+            break;
+        case 5:
+            controlador->readMateriales();
+            break;
+        case 6:
+            controlador->readPeticiones();
+            break;
+        case 7:
+            return;
+        default:
+            cout << "Opcion invalida.\n";
+            system("pause");
+        }
+
     } while (opcion != 5);
 }

@@ -30,6 +30,13 @@ public:
     void reportePrestamosPorUsuario();
     void actualizarPrestamo();
 
+    void saveUsuarios();
+    void saveMateriales();
+    void savePrestamos();
+    void readUsuarios();
+    void readMateriales();
+    void readPeticiones();
+
     void saveMateriales(ListaMateriales* lis, ofstream& file);
     void saveUsuarios(ListaUsuario* lis, ofstream& file);
 

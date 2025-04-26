@@ -506,3 +506,112 @@ void Controlador::readUsuarios(ListaUsuario* lis, ifstream& file)
 }
 
 
+//save y read
+
+void Controlador::saveUsuarios() {
+
+    cout << "Datos Guardados" << endl;
+
+    ofstream fileUsuarios;
+
+    fileUsuarios.open("usuarios.txt", ios::out);
+
+    adm->saveListaUsuarios(usuarios, fileUsuarios);
+
+    fileUsuarios.close();
+
+    cout << "<Digita Enter>" << endl;
+
+    cin.get();
+    cin.get();
+}
+
+void Controlador::saveMateriales() {
+
+    cout << "Datos Guardados" << endl;
+
+    ofstream fileMateriales;
+
+    fileMateriales.open("materiales.txt", ios::out);
+
+    adm->saveListaMateriales(materiales, fileMateriales);
+
+    fileMateriales.close();
+
+    cout << "<Digita Enter>" << endl;
+
+    cin.get();
+    cin.get();
+}
+
+void Controlador::savePrestamos() {
+
+    cout << "Datos Guardados" << endl;
+
+    ofstream fileSolicitudes;
+
+    fileSolicitudes.open("solicitudes.txt", ios::out);
+
+    adm->saveListaPrestamos(solicitudes, fileSolicitudes);
+
+    fileSolicitudes.close();
+
+    cout << "<Digita Enter>" << endl;
+
+    cin.get();
+    cin.get();
+}
+
+void Controlador::readUsuarios() {
+
+    cout << "Datos cargados" << endl;
+
+    ifstream fileUsuarios;
+
+    fileUsuarios.open("usuarios.txt", ios::in);
+  
+    adm->readListaUsuarios(usuarios, fileUsuarios);
+
+    fileUsuarios.close();
+
+    cout << "<Digita Enter>" << endl;
+
+    cin.get();
+    cin.get();
+}
+
+void Controlador::readMateriales() {
+
+    cout << "Datos cargados" << endl;
+
+    ifstream fileMateriales;
+
+    fileMateriales.open("materiales.txt", ios::in);
+
+    adm->readListaMateriales(materiales, fileMateriales);
+
+    fileMateriales.close();
+
+    cout << "<Digita Enter>" << endl;
+
+    cin.get();
+    cin.get();
+}
+
+void Controlador::readPeticiones() {
+
+    cout << "Datos cargados" << endl;
+
+    ifstream filePrestamos;
+
+    filePrestamos.open("solicitudes.txt", ios::in);
+
+    adm->readListaPrestamos(solicitudes, filePrestamos);
+
+    filePrestamos.close();
+
+    cout << "<Digita Enter>" << endl;
+
+    cin.get();
+    cin.get();
+}

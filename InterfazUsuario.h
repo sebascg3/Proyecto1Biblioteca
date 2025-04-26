@@ -20,6 +20,7 @@ public:
     void menuUsuarios();
     void menuPrestamos();
     void menuReportes();
+    void menuSaveRead();
 };
 
 #endif

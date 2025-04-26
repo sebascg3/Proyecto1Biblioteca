@@ -28,7 +28,8 @@ string ListaBase::toString() {
 
 	actual = primero;
 	while (actual != nullptr) {
-		s << actual->toString() << endl;
+		s << actual->getInfo()->toString();
+		/*s << actual->toString() << endl;*/
 		actual = actual->getSig();
 	}
 	return s.str();
