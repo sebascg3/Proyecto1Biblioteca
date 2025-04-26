@@ -2,7 +2,7 @@
 #include <iostream>
 
 Libros::Libros(string numeroClasificacion, int numeroCatalogo, string titulo, string autor, string palabraClave, string tipo, bool estado, string ISBN, string editorial, string formato)
-    : Material(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, "Libro", estado), ISBN(ISBN), editorial(editorial), formato(formato) {
+    : Material(numeroClasificacion, numeroCatalogo, titulo, autor, palabraClave, "libro", estado), ISBN(ISBN), editorial(editorial), formato(formato) {
 }
 
 string Libros::getISBN() const {
