@@ -25,7 +25,7 @@ actual = primero;
 while (actual != nullptr) {  
 	Usuario* usuarioActual = dynamic_cast<Usuario*>(actual->getInfo());  
 	if (usuarioActual != nullptr && usuarioActual->getCedula() == ced) {  
-		return usuarioActual;  
+		return new Usuario(*usuarioActual);  
 	}  
 	actual = actual->getSig();  
 }  

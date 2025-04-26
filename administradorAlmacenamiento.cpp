@@ -128,18 +128,6 @@ void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifst
 			lis->insertarFinal(mat);
 		}
 
-		if (tipo == "video") {
-
-			string duracion = "";
-			file >> duracion;
-			string formato = "";
-			file >> formato;
-			string tema = "";
-			file >> tema;
-
-			mat = new Videos(codigo, numeroCatalogo, titulo, autor, palabraClave, tipo, true, duracion, formato, tema);
-			lis->insertarFinal(mat);
-		}
 
 		if (tipo == "articulo") {
 
@@ -217,7 +205,7 @@ void administradorAlmacenamiento::readListaUsuarios(ListaUsuario* lis, ifstream&
 	}
 }
 
-void administradorAlmacenamiento::readListaPrestamos(ListaSolicitud* lis, ifstream& file)
+void administradorAlmacenamiento::readListaPrestamos(ListaSolicitud* lis, ifstream& file, ListaMateriales* lisMat,ListaUsuario* lisUs)
 {
 	Solicitud* soli = nullptr;
 
@@ -228,11 +216,11 @@ void administradorAlmacenamiento::readListaPrestamos(ListaSolicitud* lis, ifstre
 		exit(1);
 	}
 
-	while (!file.eof()) {
-		string cedula = "";
-		file >> cedula;
-		string codigo = "";
-		file >> codigo;
+	string cedula = "";
+	string codigo = "";
+	while(true){
+
+		if (!(file >> cedula >> codigo)) break;
 
 		int fechaDDia = -1;
 		int fechaDMes = -1;
@@ -251,8 +239,10 @@ void administradorAlmacenamiento::readListaPrestamos(ListaSolicitud* lis, ifstre
 		bool retraso = false;
 		file >> retraso;
 
-		Usuario* usu = lis->buscarUsuarioPorCedula(cedula);
-		Material* mat = lis->buscarMaterialPorCodigo(codigo);
+
+
+		Usuario* usu = lisUs->obtenerUsuario(cedula);
+		Material* mat = lisMat->buscarMaterial(codigo);
 
 		Fecha* fechaP = new Fecha(fechaPDia, fechaPMes, fechaPAnno);
 		Fecha* fechaD = new Fecha(fechaDDia, fechaDMes, fechaDAnno);

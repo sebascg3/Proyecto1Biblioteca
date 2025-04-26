@@ -606,7 +606,7 @@ void Controlador::readPeticiones() {
 
     filePrestamos.open("solicitudes.txt", ios::in);
 
-    adm->readListaPrestamos(solicitudes, filePrestamos);
+    adm->readListaPrestamos(solicitudes, filePrestamos, materiales, usuarios);
 
     filePrestamos.close();
 

@@ -219,5 +219,5 @@ void InterfazUsuario::menuSaveRead()
             system("pause");
         }
 
-    } while (opcion != 5);
+    } while (opcion != 7);
 }

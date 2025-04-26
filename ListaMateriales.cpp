@@ -33,9 +33,9 @@ string ListaMateriales::mostrarMaterialesPrestados() {
 
     while (actual != nullptr) {
         Material* mat = dynamic_cast<Material*>(actual->getInfo());
-        if (!mat->esDisponible()) {
+        if (!mat->esDisponible() || mat->getTipo()=="materialDigital") {
             s << "Material Prestado #" << cont++ << endl;
-            mat->toString();
+            s << mat->toString();
             s << "\n";
         }
         actual = actual->getSig();

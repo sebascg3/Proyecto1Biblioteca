@@ -22,7 +22,7 @@ public:
 	void readListaUsuarios(ListaUsuario* lis, ifstream& file);
 	
 
-	void readListaPrestamos(ListaSolicitud* lis, ifstream& file);
+	void readListaPrestamos(ListaSolicitud* lis, ifstream& file, ListaMateriales* lisMat, ListaUsuario* lisUs);
 	void saveListaPrestamos(ListaSolicitud* lis, ofstream& file);
 };
 
