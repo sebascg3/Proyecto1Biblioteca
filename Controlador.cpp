@@ -298,17 +298,17 @@ void Controlador::registrarPrestamo() {
         while (fecha == NULL) {
             try {
                 cout << "Porfavor digite la fecha a usar para los prestamos" << endl;
-                cout << "Digite el dia:" << endl;
+                cout << "Digite el dia:";
                 int dia;
                 cin >> dia;
                 if (dia > 31)throw string("Porfavor digite un numero menor a 31");
 
-                cout << "Digite el mes:" << endl;
+                cout << "Digite el mes: ";
                 int mes;
                 cin >> mes;
                 if (mes > 12)throw string("Porfavor digite un numero menor a 12");
 
-                cout << "Digite el anno:" << endl;
+                cout << "Digite el anno: ";
                 int anno;
                 cin >> anno;
 
