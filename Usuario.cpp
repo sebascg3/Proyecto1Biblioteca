@@ -35,6 +35,6 @@ void Usuario::setNombre(string n) {
 string Usuario::toString() const {
     stringstream s;
     s << "Cedula: " << cedula << ", Nombre: " << nombre << endl;
-    s << "Estado: " << (estado ? "Activo" : "Inactivo") << endl;
+    s << "Estado: " << (estado ? "Activo" : "Inactivo") << endl << endl;
     return s.str();
 }

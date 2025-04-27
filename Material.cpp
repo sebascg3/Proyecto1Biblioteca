@@ -70,7 +70,7 @@ string Material::toString() const {
     s << "Numero de catalogo: " << numeroCatalogo << endl;
     s << "Autor: " << autor << endl;
     s << "Palabra clave: " << palabraClave << endl;
-    s << "Tipo: " << tipo << endl;
+    s << "Tipo: " << tipo << endl << endl;
 
     return s.str();
 }
