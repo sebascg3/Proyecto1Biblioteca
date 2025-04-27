@@ -53,6 +53,7 @@ void administradorAlmacenamiento::saveListaMateriales(ListaMateriales* lis, ofst
 	}
 }
 
+
 void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifstream& file)
 {
 
@@ -156,6 +157,7 @@ void administradorAlmacenamiento::saveListaUsuarios(ListaUsuario* lis, ofstream&
 		actual = actual->getSig();
 	}
 }
+
 
 void administradorAlmacenamiento::readListaUsuarios(ListaUsuario* lis, ifstream& file)
 {
@@ -270,5 +272,9 @@ void administradorAlmacenamiento::saveListaPrestamos(ListaSolicitud* lis, ofstre
 		actual = actual->getSig();
 	}
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of c291ec0 (Revert "Cambios")
 
 
