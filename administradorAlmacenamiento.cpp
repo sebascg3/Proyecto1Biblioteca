@@ -272,9 +272,6 @@ void administradorAlmacenamiento::saveListaPrestamos(ListaSolicitud* lis, ofstre
 		actual = actual->getSig();
 	}
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> parent of c291ec0 (Revert "Cambios")
 
 
