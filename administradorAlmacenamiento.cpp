@@ -4,55 +4,64 @@ administradorAlmacenamiento::administradorAlmacenamiento() {};
 
 void administradorAlmacenamiento::saveListaMateriales(ListaMateriales* lis, ofstream& file)
 {
+
 	Nodo* actual = lis->getPrimero();
 
 	while (actual != nullptr) {
 		Material* materialTemp = dynamic_cast<Material*>(actual->getInfo());
 
-		file << "Codigo: " << materialTemp->getCodigo() << endl
-			<< "Titulo: " << materialTemp->getTitulo() << endl
-			<< "Autor: " << materialTemp->getAutor() << endl
-			<< "Palabra clave: " << materialTemp->getPalabraClave() << endl
-			<< "Numero de catalogo: " << materialTemp->getNumeroCatalogo() << endl
-			<< "Tipo: " << materialTemp->getTipo() << endl;
-
+		file << materialTemp->getCodigo() << endl
+			<< materialTemp->getTitulo() << endl
+			<< materialTemp->getAutor() << endl
+			<< materialTemp->getPalabraClave() << endl
+			<< materialTemp->getNumeroCatalogo() << endl
+			<< materialTemp->getTipo() << endl;
 		if (materialTemp->getTipo() == "libro") {
+
 			Libros* libro = dynamic_cast<Libros*>(materialTemp);
 
-			file << "ISBN: " << libro->getISBN() << endl
-				<< "Editorial: " << libro->getEditorial() << endl
-				<< "Formato: " << libro->getFormato() << endl;
+			file << libro->getISBN() << endl
+				<< libro->getEditorial() << endl
+				<< libro->getFormato() << endl;
 		}
-		else if (materialTemp->getTipo() == "revista") {
+
+		if (materialTemp->getTipo() == "revista") {
+
 			Revistas* revista = dynamic_cast<Revistas*>(materialTemp);
 
-			file << "Numero: " << revista->getNumero() << endl
-				<< "Volumen: " << revista->getVolumen() << endl
-				<< "Formato: " << revista->getFormato() << endl;
+			file << revista->getNumero() << endl
+				<< revista->getVolumen() << endl
+				<< revista->getFormato() << endl;
 		}
-		else if (materialTemp->getTipo() == "video") {
+
+		if (materialTemp->getTipo() == "video") {
+
 			Videos* video = dynamic_cast<Videos*>(materialTemp);
 
-			file << "Duracion: " << video->getDuracion() << endl
-				<< "Formato: " << video->getFormato() << endl
-				<< "Tema: " << video->getTema() << endl;
+			file << video->getDuracion() << endl
+				<< video->getFormato() << endl
+				<< video->getTema() << endl;
 		}
-		else if (materialTemp->getTipo() == "articulo") {
+
+		if (materialTemp->getTipo() == "articulo") {
+
 			Articulos* articulo = dynamic_cast<Articulos*>(materialTemp);
 
-			file << "Formato: " << articulo->getFormato() << endl;
+			file << articulo->getFormato() << endl;
 		}
-		else if (materialTemp->getTipo() == "materialDigital") {
+
+		if (materialTemp->getTipo() == "materialDigital") {
+
 			MaterialDigital* materialdigital = dynamic_cast<MaterialDigital*>(materialTemp);
 
-			file << "Formato: " << materialdigital->getFormato() << endl;
+			file << materialdigital->getFormato() << endl;
 		}
 
-		file << endl;
 		actual = actual->getSig();
-	}
-}
 
+	}
+
+}
 
 void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifstream& file)
 {
@@ -144,20 +153,21 @@ void administradorAlmacenamiento::readListaMateriales(ListaMateriales* lis, ifst
 
 void administradorAlmacenamiento::saveListaUsuarios(ListaUsuario* lis, ofstream& file)
 {
+
 	Nodo* actual = lis->getPrimero();
 
 	while (actual != nullptr) {
 		Usuario* usuarioTemp = dynamic_cast<Usuario*>(actual->getInfo());
 
-		file << "Nombre: " << usuarioTemp->getNombre() << endl
-			<< "Cedula: " << usuarioTemp->getCedula() << endl
-			<< "Estado: " << (usuarioTemp->getEstado() ? "Activo" : "Inactivo") << endl;
+		file << usuarioTemp->getNombre() << endl
+			<< usuarioTemp->getCedula() << endl
+			<< usuarioTemp->getEstado() << endl;
 
-		file << endl;
 		actual = actual->getSig();
+		
 	}
-}
 
+}
 
 void administradorAlmacenamiento::readListaUsuarios(ListaUsuario* lis, ifstream& file)
 {
@@ -249,29 +259,28 @@ void administradorAlmacenamiento::readListaPrestamos(ListaSolicitud* lis, ifstre
 
 }
 
-void administradorAlmacenamiento::saveListaPrestamos(ListaSolicitud* lis, ofstream& file) {
-	Nodo* actual = lis->getPrimero();
+	void administradorAlmacenamiento::saveListaPrestamos(ListaSolicitud * lis, ofstream & file){
+		Nodo* actual = lis->getPrimero();
 
-	while (actual != nullptr) {
-		Solicitud* solicitudTemp = dynamic_cast<Solicitud*>(actual->getInfo());
+		while (actual != nullptr) {
+			Solicitud* solicitudTemp = dynamic_cast<Solicitud*>(actual->getInfo());
 
-		file << "Cedula Usuario: " << solicitudTemp->getUsuario()->getCedula() << endl
-			<< "Codigo Material: " << solicitudTemp->getMaterial()->getCodigo() << endl
+			file << solicitudTemp->getUsuario()->getCedula() << endl
+				<< solicitudTemp->getMaterial()->getCodigo() << endl
 
-			<< "Dia de Solicitud: " << solicitudTemp->getGestor()->getfechaD()->getDia() << endl
-			<< "Mes de Solicitud: " << solicitudTemp->getGestor()->getfechaD()->getMes() << endl
-			<< "Anno de Solicitud: " << solicitudTemp->getGestor()->getfechaD()->getAnno() << endl
+				<< solicitudTemp->getGestor()->getfechaD()->getDia()<< endl
+				<< solicitudTemp->getGestor()->getfechaD()->getMes() << endl
+				<< solicitudTemp->getGestor()->getfechaD()->getAnno() << endl
 
-			<< "Dia de Prestamo: " << solicitudTemp->getGestor()->getfechaP()->getDia() << endl
-			<< "Mes de Prestamo: " << solicitudTemp->getGestor()->getfechaP()->getMes() << endl
-			<< "Anno de Prestamo: " << solicitudTemp->getGestor()->getfechaP()->getAnno() << endl
+				<< solicitudTemp->getGestor()->getfechaP()->getDia() << endl
+				<< solicitudTemp->getGestor()->getfechaP()->getMes() << endl
+				<< solicitudTemp->getGestor()->getfechaP()->getAnno() << endl
 
-			<< "Retornado: " << (solicitudTemp->getRet() ? "Si" : "No") << endl;
+				<< solicitudTemp->getRet() << endl;
 
-		file << endl;
-		actual = actual->getSig();
+			actual = actual->getSig();
+
+		}
 	}
-}
-
 
 
