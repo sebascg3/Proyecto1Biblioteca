@@ -1,9 +1,9 @@
-12
-S
-H
-H
-12
-revista
 1
-2
-FI
+sebas
+sebas
+sebas
+12
+libro
+1234
+si
+fisico
