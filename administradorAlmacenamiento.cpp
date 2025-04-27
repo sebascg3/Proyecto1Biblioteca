@@ -249,6 +249,8 @@ void administradorAlmacenamiento::readListaPrestamos(ListaSolicitud* lis, ifstre
 
 		soli = new Solicitud(usu, mat, fechaP, fechaD, retraso);
 
+		soli->getMaterial()->setDisponible(false);
+
 		lis->insertarFinal(soli);
 
 	}
