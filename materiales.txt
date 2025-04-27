@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-111
-jose
-juan
-accion
-222
-materialDigital
-fisico
-=======
-123
-titulo
-autor
-clave
-123
-materialDigital
-digital
->>>>>>> 5
+12
+S
+H
+H
+12
+revista
+1
+2
+FI
